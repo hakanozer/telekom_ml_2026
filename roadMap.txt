@@ -1,0 +1,25 @@
+# Github: https://github.com/hakanozer/telekom_ml_2026
+# 
+# Python Version
+Download: https://www.python.org/downloads/release/python-3119/
+python --version ( 3.11.9 )
+pip --version
+
+Sanal ortam oluşturun
+python -m venv venv
+
+Sanal ortamı aktive edin
+Windows:
+venv\Scripts\activate
+
+Mac/Linux:
+source venv/bin/activate
+
+
+py -m venv venv
+venv\Scripts\activate
+
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+
+pip install fastapi uvicorn pandas numpy scikit-learn matplotlib jupyter python-dotenv pytest `
+--trusted-host pypi.org --trusted-host files.pythonhosted.org
