@@ -12,5 +12,9 @@ def create_user(db: Session, user: schemas.UserCreate):
     return db_user
 
 
-def get_user_by_email(db: Session, email: str):
-    return db.query(models.User).filter(models.User.email == email).first()
+# email ve password ile kullanıcıyı doğrulamak için bir fonksiyon oluşturuyoruz
+def authenticate_user(db: Session, email: str, password: str):
+    user = db.query(models.User).filter(models.User.email == email).first()
+    if user and user.password == password:
+        return user
+    return None
