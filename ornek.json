@@ -1,0 +1,257 @@
+[
+  {
+    "title": "Samsung Galaxy S24",
+    "description": "Samsung Galaxy S24 akıllı telefon, güçlü işlemcisi ve yüksek çözünürlüklü kamerası ile günlük kullanım için ideal bir deneyim sunar.",
+    "price": 45999
+  },
+  {
+    "title": "Lenovo IdeaPad 5",
+    "description": "Lenovo IdeaPad 5 dizüstü bilgisayar, hızlı SSD depolama ve güçlü performansı sayesinde iş ve eğitim ihtiyaçlarını karşılar.",
+    "price": 32999
+  },
+  {
+    "title": "Arzum Kahve Makinesi",
+    "description": "Arzum kahve makinesi, bol köpüklü Türk kahvesi hazırlamak için pratik ve şık bir çözüm sunar.",
+    "price": 2499
+  },
+  {
+    "title": "Vestel Smart TV 55 İnç",
+    "description": "Vestel 55 inç Smart TV, 4K görüntü kalitesi ve akıllı uygulama desteği ile keyifli bir izleme deneyimi sağlar.",
+    "price": 21999
+  },
+  {
+    "title": "Philips Airfryer XXL",
+    "description": "Philips Airfryer XXL, daha az yağ kullanarak sağlıklı ve lezzetli yemekler hazırlamanıza yardımcı olur.",
+    "price": 8999
+  },
+  {
+    "title": "Monster Abra A7",
+    "description": "Monster Abra A7 oyuncu bilgisayarı, yüksek performanslı ekran kartı ile oyun severler için güçlü bir deneyim sunar.",
+    "price": 48999
+  },
+  {
+    "title": "Apple Watch Series 9",
+    "description": "Apple Watch Series 9 akıllı saat, sağlık takibi ve gelişmiş bildirim özellikleri ile günlük hayatınızı kolaylaştırır.",
+    "price": 18999
+  },
+  {
+    "title": "Bosch Buzdolabı XL",
+    "description": "Bosch XL buzdolabı, geniş iç hacmi ve enerji tasarrufu sağlayan teknolojisi ile mutfaklar için ideal bir seçimdir.",
+    "price": 38999
+  },
+  {
+    "title": "Karaca Yemek Takımı",
+    "description": "Karaca yemek takımı, modern tasarımı ve dayanıklı yapısı ile sofralarınıza şıklık katar.",
+    "price": 5499
+  },
+  {
+    "title": "Xiaomi Redmi Note 13",
+    "description": "Xiaomi Redmi Note 13, yüksek pil kapasitesi ve güçlü kamerası ile fiyat performans odaklı bir akıllı telefondur.",
+    "price": 16999
+  },
+  {
+    "title": "Fakir Elektrikli Süpürge",
+    "description": "Fakir elektrikli süpürge, güçlü çekim performansı sayesinde ev temizliğini kolaylaştırır.",
+    "price": 6499
+  },
+  {
+    "title": "Casper Nirvana X600",
+    "description": "Casper Nirvana X600 dizüstü bilgisayar, ofis çalışmaları ve günlük kullanım için yüksek verimlilik sunar.",
+    "price": 27999
+  },
+  {
+    "title": "JBL Tune 520BT",
+    "description": "JBL Tune 520BT kablosuz kulaklık, kaliteli ses performansı ve uzun pil ömrü ile müzik keyfi sağlar.",
+    "price": 2999
+  },
+  {
+    "title": "Huawei MatePad 11",
+    "description": "Huawei MatePad 11 tablet, geniş ekranı ve hızlı işlemcisi sayesinde eğlence ve çalışma için uygundur.",
+    "price": 13999
+  },
+  {
+    "title": "Tefal Ütü Expert",
+    "description": "Tefal Ütü Expert, güçlü buhar çıkışı sayesinde kırışıklıkları kolayca giderir.",
+    "price": 3999
+  },
+  {
+    "title": "Asus ROG Strix G16",
+    "description": "Asus ROG Strix G16 oyuncu laptopu, yüksek performansı ile oyun ve profesyonel işler için geliştirilmiştir.",
+    "price": 62999
+  },
+  {
+    "title": "Beko Çamaşır Makinesi",
+    "description": "Beko çamaşır makinesi, enerji tasarruflu yapısı ve geniş kapasitesi ile aileler için uygundur.",
+    "price": 24999
+  },
+  {
+    "title": "Logitech MX Master 3S",
+    "description": "Logitech MX Master 3S kablosuz mouse, ergonomik tasarımı ve hassas kontrol özellikleri ile dikkat çeker.",
+    "price": 4799
+  },
+  {
+    "title": "Dyson V15 Detect",
+    "description": "Dyson V15 Detect dikey süpürge, lazer teknolojisi ile görünmeyen tozları bile temizler.",
+    "price": 34999
+  },
+  {
+    "title": "Oppo Reno 11F",
+    "description": "Oppo Reno 11F akıllı telefon, şık tasarımı ve yüksek çözünürlüklü kamerası ile kullanıcılarına premium deneyim sunar.",
+    "price": 20999
+  },
+  {
+    "title": "Acer Aspire 7",
+    "description": "Acer Aspire 7 dizüstü bilgisayar, güçlü donanımı ile çoklu görevlerde yüksek performans sağlar.",
+    "price": 36999
+  },
+  {
+    "title": "Grundig Blender Seti",
+    "description": "Grundig blender seti, mutfakta hızlı ve pratik hazırlıklar yapmanız için geliştirilmiştir.",
+    "price": 3299
+  },
+  {
+    "title": "Sony PlayStation 5",
+    "description": "Sony PlayStation 5 oyun konsolu, yeni nesil grafik teknolojisi ile etkileyici bir oyun deneyimi sunar.",
+    "price": 32999
+  },
+  {
+    "title": "Canon EOS R50",
+    "description": "Canon EOS R50 aynasız kamera, yüksek kaliteli fotoğraf ve video çekimleri için ideal bir tercihtir.",
+    "price": 42999
+  },
+  {
+    "title": "Dell Inspiron 15",
+    "description": "Dell Inspiron 15 laptop, günlük işler ve uzaktan çalışma için güçlü performans sağlar.",
+    "price": 31999
+  },
+  {
+    "title": "Siemens Ankastre Set",
+    "description": "Siemens ankastre set, modern mutfaklar için şık tasarım ve yüksek performans sunar.",
+    "price": 28999
+  },
+  {
+    "title": "Realme C67",
+    "description": "Realme C67 akıllı telefon, uzun pil ömrü ve hızlı şarj desteği ile günlük kullanıma uygundur.",
+    "price": 11999
+  },
+  {
+    "title": "Moulinex Tost Makinesi",
+    "description": "Moulinex tost makinesi, hızlı ısınma özelliği ile lezzetli tostlar hazırlamanıza yardımcı olur.",
+    "price": 2299
+  },
+  {
+    "title": "HP Victus 16",
+    "description": "HP Victus 16 oyuncu bilgisayarı, güçlü ekran kartı ile yüksek performanslı oyun deneyimi sunar.",
+    "price": 55999
+  },
+  {
+    "title": "Anker Powerbank 20000mAh",
+    "description": "Anker 20000mAh powerbank, mobil cihazlarınızı gün boyu hızlı ve güvenli şekilde şarj eder.",
+    "price": 2499
+  },
+  {
+    "title": "Miele Bulaşık Makinesi",
+    "description": "Miele bulaşık makinesi, sessiz çalışma özelliği ve yüksek temizlik performansı ile dikkat çeker.",
+    "price": 45999
+  },
+  {
+    "title": "Samsung Galaxy Tab S9",
+    "description": "Samsung Galaxy Tab S9 tablet, güçlü işlemcisi ve AMOLED ekranı ile üst düzey performans sunar.",
+    "price": 28999
+  },
+  {
+    "title": "Braun Sakal Tıraş Makinesi",
+    "description": "Braun sakal tıraş makinesi, hassas kesim teknolojisi ile konforlu bir tıraş deneyimi sağlar.",
+    "price": 3599
+  },
+  {
+    "title": "LG OLED Evo TV",
+    "description": "LG OLED Evo TV, canlı renkleri ve üstün görüntü teknolojisi ile sinema keyfini evinize taşır.",
+    "price": 69999
+  },
+  {
+    "title": "Honor Magic 6 Lite",
+    "description": "Honor Magic 6 Lite akıllı telefon, ince tasarımı ve güçlü bataryası ile öne çıkar.",
+    "price": 17999
+  },
+  {
+    "title": "Razer BlackWidow Klavye",
+    "description": "Razer BlackWidow mekanik klavye, oyuncular için hızlı tepki süresi ve dayanıklılık sunar.",
+    "price": 6999
+  },
+  {
+    "title": "Electrolux Kurutma Makinesi",
+    "description": "Electrolux kurutma makinesi, kıyafetlerinizi hızlı ve enerji tasarruflu şekilde kurutur.",
+    "price": 31999
+  },
+  {
+    "title": "MSI Katana 17",
+    "description": "MSI Katana 17 gaming laptop, yüksek performanslı donanımı ile oyun tutkunlarına hitap eder.",
+    "price": 64999
+  },
+  {
+    "title": "Homend Çay Makinesi",
+    "description": "Homend çay makinesi, otomatik sıcak tutma özelliği ile çay keyfini uzun süre devam ettirir.",
+    "price": 2799
+  },
+  {
+    "title": "GoPro Hero 12",
+    "description": "GoPro Hero 12 aksiyon kamerası, yüksek çözünürlüklü video çekimleri ile maceralarınızı kaydeder.",
+    "price": 23999
+  },
+  {
+    "title": "TCL 65 İnç Android TV",
+    "description": "TCL 65 inç Android TV, geniş ekranı ve akıllı özellikleri ile eğlence deneyimini artırır.",
+    "price": 27999
+  },
+  {
+    "title": "Nespresso Kahve Makinesi",
+    "description": "Nespresso kahve makinesi, kapsül sistemi sayesinde kısa sürede lezzetli kahveler hazırlar.",
+    "price": 7999
+  },
+  {
+    "title": "Vivo V30 Lite",
+    "description": "Vivo V30 Lite akıllı telefon, modern tasarımı ve güçlü kamera sistemi ile dikkat çeker.",
+    "price": 18999
+  },
+  {
+    "title": "Arçelik Derin Dondurucu",
+    "description": "Arçelik derin dondurucu, geniş depolama kapasitesi ile gıdalarınızı uzun süre korur.",
+    "price": 22999
+  },
+  {
+    "title": "HyperX Cloud III",
+    "description": "HyperX Cloud III oyuncu kulaklığı, net ses kalitesi ve konforlu yapısı ile uzun kullanım sunar.",
+    "price": 4999
+  },
+  {
+    "title": "Samsung Odyssey G7 Monitör",
+    "description": "Samsung Odyssey G7 oyuncu monitörü, yüksek yenileme hızı ile akıcı görüntü performansı sağlar.",
+    "price": 24999
+  },
+  {
+    "title": "Apple iPad Air M2",
+    "description": "Apple iPad Air M2 tablet, güçlü işlemcisi ile profesyonel kullanım ve eğlenceyi bir arada sunar.",
+    "price": 34999
+  },
+  {
+    "title": "Delonghi Espresso Makinesi",
+    "description": "Delonghi espresso makinesi, kahve severler için profesyonel seviyede espresso deneyimi sağlar.",
+    "price": 15999
+  },
+  {
+    "title": "TP-Link WiFi 6 Router",
+    "description": "TP-Link WiFi 6 router, yüksek hızlı internet bağlantısı ve geniş kapsama alanı sunar.",
+    "price": 3999
+  },
+  {
+    "title": "Lenovo Legion 5 Pro",
+    "description": "Lenovo Legion 5 Pro gaming laptop, güçlü işlemci ve ekran kartı ile üst düzey performans sunar.",
+    "price": 67999
+  },
+  {
+    "title": "Xiaomi Robot Süpürge X20",
+    "description": "Xiaomi Robot Süpürge X20, akıllı haritalama sistemi ile evinizi otomatik olarak temizler.",
+    "price": 14999
+  }
+]
