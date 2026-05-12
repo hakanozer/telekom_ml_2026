@@ -40,3 +40,26 @@ def save_all(products: list[productSchema.ProductCreate]):
     db_products = productRepository.save_all(db, products)
     db.close()
     return db_products
+
+# product silme endpointi oluşturuyoruz
+@router.delete("/{product_id}")
+def delete_product(product_id: int):
+    db = connection.SessionLocal()
+    success = productRepository.delete_product(db, product_id)
+    db.close()
+    if success:
+        return {"message": "Product deleted successfully"}
+    else:
+        raise HTTPException(status_code=404, detail="Product not found")
+    
+    
+# product güncelleme endpointi oluşturuyoruz
+@router.put("/{product_id}")
+def update_product(product_id: int, product: productSchema.ProductCreate):
+    db = connection.SessionLocal()
+    updated_product = productRepository.update_product(db, product_id, product)
+    db.close()
+    if updated_product:
+        return updated_product
+    else:
+        raise HTTPException(status_code=404, detail="Product not found")    

@@ -31,3 +31,24 @@ def save_all(db: Session, products: list[productSchema.ProductCreate]):
     for db_product in db_products:
         db.refresh(db_product)
     return db_products
+
+# product silme işlemi için bir fonksiyon oluşturuyoruz
+def delete_product(db: Session, product_id: int):
+    db_product = db.query(models.Product).filter(models.Product.id == product_id).first()
+    if db_product:
+        db.delete(db_product)
+        db.commit()
+        return True
+    return False
+
+# product güncelleme işlemi için bir fonksiyon oluşturuyoruz
+def update_product(db: Session, product_id: int, product: productSchema.ProductCreate):
+    db_product = db.query(models.Product).filter(models.Product.id == product_id).first()
+    if db_product:
+        db_product.title = product.title
+        db_product.description = product.description
+        db_product.price = product.price
+        db.commit()
+        db.refresh(db_product)
+        return db_product
+    return None
