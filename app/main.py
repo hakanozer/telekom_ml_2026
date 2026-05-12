@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from .routes import userRoute
+from .routes import userRoute, productRoute
 
 # database işlemleri için connection.py dosyasını import ediyoruz
 from .db import connection
@@ -9,4 +9,5 @@ connection.Base.metadata.create_all(bind=connection.engine)
 
 app = FastAPI()
 
-app.include_router(userRoute.router)
+app.include_router(userRoute.router, prefix="/users") 
+app.include_router(productRoute.router, prefix="/products")

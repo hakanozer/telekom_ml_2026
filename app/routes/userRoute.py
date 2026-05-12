@@ -1,13 +1,10 @@
 
 from fastapi import APIRouter
-
-router = APIRouter()
-
-# userRepositoy içindeki methodları api haline getireceğiz
 from ..repositories import userRepository
 from ..schemas import schemas
 from ..db import connection
 
+router = APIRouter()
 
 @router.post("/register")
 def register(user: schemas.UserCreate):
@@ -26,5 +23,3 @@ def login(user: schemas.UserLogin):
         return {"message": "Login successful", "user": user}
     else:
         return {"message": "Invalid email or password"}
-
-

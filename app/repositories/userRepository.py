@@ -6,7 +6,7 @@ from ..models import models
 
 def create_user(db: Session, user: schemas.UserCreate):
     db_user = models.User(name=user.name, email=user.email, password=user.password)
-    db.add(db_user)
+    db.add(db_user) # insert into users (name, email, password) values (user.name, user.email, user.password)
     db.commit()
     db.refresh(db_user)
     return db_user
