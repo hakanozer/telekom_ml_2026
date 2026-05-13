@@ -1,0 +1,501 @@
+siparis_id,musteri_adi,sehir,fiyat,adet,tarih,kategori
+10001,ahmet yılmaz,İstanbul,3881.08,8,01-Ocak-2024 00:00:00,Ev
+10002,AYŞE KAYA,Ankara,2222.45,7,01-Ocak-2024 03:00:00,Giyim
+10003,Mehmet  Demir,İzmir,4300.06,6,,Giyim
+10004, Fatma Şahin,Bursa,3501.97,8,01-Ocak-2024 09:00:00,Giyim
+10005,ahmet yılmaz,İstanbul,516.18,2,01-Ocak-2024 12:00:00,Ev
+10006,AYŞE KAYA,İstanbul,4879.33,9,01-Ocak-2024 15:00:00,Giyim
+10007,Mehmet  Demir,Ankara,3817.64,8,01-Ocak-2024 18:00:00,
+10008, Fatma Şahin,İzmir,3941.02,5,01-Ocak-2024 21:00:00,Ev
+10009,ahmet yılmaz,Bursa,684.16,7,01-Şubat-2024 00:00:00,
+10010,AYŞE KAYA,İstanbul,2279.41,5,01-Şubat-2024 03:00:00,?
+10011,Mehmet  Demir,İstanbul,1885.45,3,01-Şubat-2024 06:00:00,Giyim
+10012, Fatma Şahin,Ankara,4637.49,8,01-Şubat-2024 09:00:00,Giyim
+10013,ahmet yılmaz,İzmir,3237.13,3,01-Şubat-2024 12:00:00,?
+10014,AYŞE KAYA,Bursa,4122.67,3,01-Şubat-2024 15:00:00,Giyim
+10015,Mehmet  Demir,İstanbul,2244.9,5,01-Şubat-2024 18:00:00,Giyim
+10016, Fatma Şahin,İstanbul,1174.83,8,01-Şubat-2024 21:00:00,
+10017,ahmet yılmaz,Ankara,2795.19,4,01-Mart-2024 00:00:00,Ev
+10018,AYŞE KAYA,İzmir,365.9,5,01-Mart-2024 03:00:00,Elektronik
+10019,Mehmet  Demir,Bursa,4146.77,1,01-Mart-2024 06:00:00,Ev
+10020, Fatma Şahin,İstanbul,3176.74,2,01-Mart-2024 09:00:00,Ev
+10021,ahmet yılmaz,İstanbul,50.0,1,01-Mart-2024 12:00:00,
+10022,AYŞE KAYA,Ankara,1804.9,1,01-Mart-2024 15:00:00,?
+10023,Mehmet  Demir,İzmir,4854.96,8,01-Mart-2024 18:00:00,Elektronik
+10024, Fatma Şahin,Bursa,4470.95,8,01-Mart-2024 21:00:00,Elektronik
+10025,ahmet yılmaz,İstanbul,3903.0,8,01-Nisan-2024 00:00:00,?
+10026,AYŞE KAYA,İstanbul,1013.46,1,01-Nisan-2024 03:00:00,Elektronik
+10027,Mehmet  Demir,Ankara,2360.27,1,01-Nisan-2024 06:00:00,Giyim
+10028, Fatma Şahin,İzmir,266.83,3,01-Nisan-2024 09:00:00,Elektronik
+10029,ahmet yılmaz,Bursa,813.73,6,01-Nisan-2024 12:00:00,Elektronik
+10030,AYŞE KAYA,İstanbul,3431.09,4,01-Nisan-2024 15:00:00,
+10031,Mehmet  Demir,İstanbul,3736.57,5,01-Nisan-2024 18:00:00,Elektronik
+10032, Fatma Şahin,Ankara,50.0,2,01-Nisan-2024 21:00:00,Elektronik
+10033,ahmet yılmaz,İzmir,1662.84,7,01-Mayıs-2024 00:00:00,
+10034,AYŞE KAYA,Bursa,1883.78,3,01-Mayıs-2024 03:00:00,Elektronik
+10035,Mehmet  Demir,İstanbul,2374.3,1,01-Mayıs-2024 06:00:00,
+10036, Fatma Şahin,İstanbul,987.88,7,01-Mayıs-2024 09:00:00,Elektronik
+10037,ahmet yılmaz,Ankara,50.0,9,01-Mayıs-2024 12:00:00,Elektronik
+10038,AYŞE KAYA,İzmir,2404.74,1,01-Mayıs-2024 15:00:00,Elektronik
+10039,Mehmet  Demir,Bursa,1173.2,4,01-Mayıs-2024 18:00:00,?
+10040, Fatma Şahin,İstanbul,3365.58,8,01-Mayıs-2024 21:00:00,?
+10041,ahmet yılmaz,İstanbul,2213.9,7,01-Haziran-2024 00:00:00,Ev
+10042,AYŞE KAYA,Ankara,4171.76,8,01-Haziran-2024 03:00:00,Giyim
+10043,Mehmet  Demir,İzmir,3516.31,4,01-Haziran-2024 06:00:00,Elektronik
+10044, Fatma Şahin,Bursa,1596.21,4,01-Haziran-2024 09:00:00,Ev
+10045,ahmet yılmaz,İstanbul,4169.69,7,01-Haziran-2024 12:00:00,Giyim
+10046,AYŞE KAYA,İstanbul,50.0,2,01-Haziran-2024 15:00:00,Ev
+10047,Mehmet  Demir,Ankara,1968.02,3,01-Haziran-2024 18:00:00,?
+10048, Fatma Şahin,İzmir,1477.22,6,01-Haziran-2024 21:00:00,
+10049,ahmet yılmaz,Bursa,3428.35,7,01-Temmuz-2024 00:00:00,Ev
+10050,AYŞE KAYA,İstanbul,741.77,2,01-Temmuz-2024 03:00:00,Elektronik
+10051,Mehmet  Demir,İstanbul,1039.55,5,01-Temmuz-2024 06:00:00,Giyim
+10052, Fatma Şahin,Ankara,86.44,4,01-Temmuz-2024 09:00:00,
+10053,ahmet yılmaz,İzmir,3945.28,5,01-Temmuz-2024 12:00:00,Ev
+10054,AYŞE KAYA,Bursa,3341.01,9,01-Temmuz-2024 15:00:00,?
+10055,Mehmet  Demir,İstanbul,3540.57,1,01-Temmuz-2024 18:00:00,Ev
+10056, Fatma Şahin,İstanbul,3914.61,9,01-Temmuz-2024 21:00:00,Elektronik
+10057,ahmet yılmaz,Ankara,2321.63,5,01-Ağustos-2024 00:00:00,
+10058,AYŞE KAYA,İzmir,2865.27,7,01-Ağustos-2024 03:00:00,?
+10059,Mehmet  Demir,Bursa,742.0,4,01-Ağustos-2024 06:00:00,
+10060, Fatma Şahin,İstanbul,616.92,3,01-Ağustos-2024 09:00:00,
+10061,ahmet yılmaz,İstanbul,3358.59,7,01-Ağustos-2024 12:00:00,Giyim
+10062,AYŞE KAYA,Ankara,2381.93,7,01-Ağustos-2024 15:00:00,Giyim
+10063,Mehmet  Demir,İzmir,2847.92,2,01-Ağustos-2024 18:00:00,Giyim
+10064, Fatma Şahin,Bursa,3836.74,7,01-Ağustos-2024 21:00:00,
+10065,ahmet yılmaz,İstanbul,50.0,7,01-Eylül-2024 00:00:00,Ev
+10066,AYŞE KAYA,İstanbul,2790.22,4,01-Eylül-2024 03:00:00,Ev
+10067,Mehmet  Demir,Ankara,2818.08,9,01-Eylül-2024 06:00:00,
+10068, Fatma Şahin,İzmir,1554.55,6,01-Eylül-2024 09:00:00,?
+10069,ahmet yılmaz,Bursa,202.55,4,01-Eylül-2024 12:00:00,
+10070,AYŞE KAYA,İstanbul,2211.75,1,01-Eylül-2024 15:00:00,
+10071,Mehmet  Demir,İstanbul,1112.19,7,01-Eylül-2024 18:00:00,Elektronik
+10072, Fatma Şahin,Ankara,2072.22,2,01-Eylül-2024 21:00:00,Giyim
+10073,ahmet yılmaz,İzmir,4274.35,7,01-Ekim-2024 00:00:00,?
+10074,AYŞE KAYA,Bursa,1208.0,5,01-Ekim-2024 03:00:00,
+10075,Mehmet  Demir,İstanbul,338.6,5,01-Ekim-2024 06:00:00,
+10076, Fatma Şahin,İstanbul,1442.85,2,01-Ekim-2024 09:00:00,Giyim
+10077,ahmet yılmaz,Ankara,50.0,7,01-Ekim-2024 12:00:00,Ev
+10078,AYŞE KAYA,İzmir,3326.49,2,01-Ekim-2024 15:00:00,?
+10079,Mehmet  Demir,Bursa,2807.31,4,01-Ekim-2024 18:00:00,Elektronik
+10080, Fatma Şahin,İstanbul,3930.3,8,01-Ekim-2024 21:00:00,?
+10081,ahmet yılmaz,İstanbul,3338.35,9,01-Kasım-2024 00:00:00,Giyim
+10082,AYŞE KAYA,Ankara,2061.61,9,01-Kasım-2024 03:00:00,Giyim
+10083,Mehmet  Demir,İzmir,4079.4,9,01-Kasım-2024 06:00:00,Ev
+10084, Fatma Şahin,Bursa,876.52,6,01-Kasım-2024 09:00:00,Ev
+10085,ahmet yılmaz,İstanbul,162.42,2,01-Kasım-2024 12:00:00,?
+10086,AYŞE KAYA,İstanbul,495.74,8,01-Kasım-2024 15:00:00,Giyim
+10087,Bilinmiyor,Ankara,3625.68,8,01-Kasım-2024 18:00:00,
+10088, Fatma Şahin,İzmir,2336.29,9,01-Kasım-2024 21:00:00,Elektronik
+10089,ahmet yılmaz,Bursa,50.0,6,01-Aralık-2024 00:00:00,
+10090,AYŞE KAYA,İstanbul,2530.17,2,01-Aralık-2024 03:00:00,Elektronik
+10091,Mehmet  Demir,İstanbul,803.94,5,01-Aralık-2024 06:00:00,?
+10092, Fatma Şahin,Ankara,3496.79,5,01-Aralık-2024 09:00:00,Giyim
+10093,ahmet yılmaz,İzmir,2258.47,8,01-Aralık-2024 12:00:00,Giyim
+10094,AYŞE KAYA,Bursa,1936.06,4,01-Aralık-2024 15:00:00,Elektronik
+10095,Mehmet  Demir,İstanbul,1542.48,3,01-Aralık-2024 18:00:00,
+10096, Fatma Şahin,İstanbul,3169.9,1,01-Aralık-2024 21:00:00,Elektronik
+10097,ahmet yılmaz,Ankara,1840.97,8,,?
+10098,AYŞE KAYA,İzmir,483.87,7,,?
+10099,Mehmet  Demir,Bursa,634.13,1,,
+10100, Fatma Şahin,İstanbul,4811.39,4,,?
+10101,ahmet yılmaz,İstanbul,4547.47,5,,Giyim
+10102,AYŞE KAYA,Ankara,3513.55,5,,?
+10103,Mehmet  Demir,İzmir,1366.06,9,,
+10104, Fatma Şahin,Bursa,4847.42,2,,Giyim
+10105,ahmet yılmaz,İstanbul,3904.82,3,,Elektronik
+10106,AYŞE KAYA,İstanbul,3598.61,2,,
+10107,Mehmet  Demir,Ankara,2274.34,3,,Elektronik
+10108, Fatma Şahin,İzmir,1397.6,9,,Ev
+10109,ahmet yılmaz,Bursa,527.14,9,,Giyim
+10110,AYŞE KAYA,İstanbul,4517.88,1,,Elektronik
+10111,Mehmet  Demir,İstanbul,2306.09,6,,?
+10112, Fatma Şahin,Ankara,1051.7,3,,Elektronik
+10113,ahmet yılmaz,İzmir,1564.49,2,,?
+10114,AYŞE KAYA,Bursa,2917.14,3,,?
+10115,Mehmet  Demir,İstanbul,925.03,2,,Elektronik
+10116, Fatma Şahin,İstanbul,4290.24,5,,Elektronik
+10117,ahmet yılmaz,Ankara,3804.67,9,,?
+10118,AYŞE KAYA,İzmir,3611.34,6,,Ev
+10119,Mehmet  Demir,Bursa,2188.86,7,,Elektronik
+10120, Fatma Şahin,İstanbul,3155.18,5,,
+10121,ahmet yılmaz,İstanbul,2941.28,1,,Giyim
+10122,AYŞE KAYA,Ankara,3266.74,1,,Elektronik
+10123,Mehmet  Demir,İzmir,468.0,3,,
+10124, Fatma Şahin,Bursa,2108.25,3,,Elektronik
+10125,ahmet yılmaz,İstanbul,255.99,8,,Ev
+10126,AYŞE KAYA,İstanbul,2495.25,8,,
+10127,Mehmet  Demir,Ankara,1682.81,8,,Ev
+10128, Fatma Şahin,İzmir,765.39,6,,Ev
+10129,ahmet yılmaz,Bursa,561.84,6,,Giyim
+10130,AYŞE KAYA,İstanbul,2958.84,6,,Elektronik
+10131,Mehmet  Demir,İstanbul,894.44,4,,Ev
+10132, Fatma Şahin,Ankara,4629.34,7,,
+10133,ahmet yılmaz,İzmir,2926.25,8,,Elektronik
+10134,AYŞE KAYA,Bursa,1767.01,7,,
+10135,Mehmet  Demir,İstanbul,2975.03,6,,Ev
+10136, Fatma Şahin,İstanbul,162.88,1,,Ev
+10137,ahmet yılmaz,Ankara,4794.87,7,,Elektronik
+10138,AYŞE KAYA,İzmir,2437.4,4,,?
+10139,Bilinmiyor,Bursa,3924.54,7,,Elektronik
+10140, Fatma Şahin,İstanbul,459.51,5,,Giyim
+10141,ahmet yılmaz,İstanbul,2458.96,8,,?
+10142,AYŞE KAYA,Ankara,2479.0,4,,Elektronik
+10143,Mehmet  Demir,İzmir,4692.24,9,,Ev
+10144, Fatma Şahin,Bursa,2880.05,8,,Ev
+10145,Bilinmiyor,İstanbul,2393.77,3,,Elektronik
+10146,AYŞE KAYA,İstanbul,1371.53,5,,Giyim
+10147,Mehmet  Demir,Ankara,1691.27,5,,Giyim
+10148, Fatma Şahin,İzmir,2627.33,7,,?
+10149,ahmet yılmaz,Bursa,2222.61,7,,
+10150,AYŞE KAYA,İstanbul,156.98,8,,
+10151,Mehmet  Demir,İstanbul,4140.15,4,,Elektronik
+10152,Bilinmiyor,Ankara,50.0,5,,Elektronik
+10153,ahmet yılmaz,İzmir,744.23,4,,Elektronik
+10154,AYŞE KAYA,Bursa,2792.48,9,,Ev
+10155,Mehmet  Demir,İstanbul,587.45,3,,Elektronik
+10156, Fatma Şahin,İstanbul,3377.59,6,,Giyim
+10157,ahmet yılmaz,Ankara,1442.11,2,,
+10158,AYŞE KAYA,İzmir,3314.14,8,,
+10159,Mehmet  Demir,Bursa,3648.62,4,,
+10160, Fatma Şahin,İstanbul,50.0,4,,Giyim
+10161,ahmet yılmaz,İstanbul,583.32,6,,?
+10162,AYŞE KAYA,Ankara,4584.26,5,,?
+10163,Mehmet  Demir,İzmir,1189.56,8,,Elektronik
+10164, Fatma Şahin,Bursa,235.19,5,,Ev
+10165,ahmet yılmaz,İstanbul,2796.52,5,,Ev
+10166,AYŞE KAYA,İstanbul,1886.07,1,,
+10167,Mehmet  Demir,Ankara,4157.46,1,,?
+10168, Fatma Şahin,İzmir,4050.84,4,,?
+10169,ahmet yılmaz,Bursa,1619.84,9,,Ev
+10170,AYŞE KAYA,İstanbul,4766.85,9,,?
+10171,Mehmet  Demir,İstanbul,1490.04,6,,?
+10172, Fatma Şahin,Ankara,50.0,6,,
+10173,ahmet yılmaz,İzmir,1317.03,4,,Giyim
+10174,AYŞE KAYA,Bursa,4683.42,2,,?
+10175,Mehmet  Demir,İstanbul,864.81,1,,?
+10176, Fatma Şahin,İstanbul,272.31,4,,
+10177,ahmet yılmaz,Ankara,2203.73,3,,Elektronik
+10178,AYŞE KAYA,İzmir,4962.26,2,,Ev
+10179,Mehmet  Demir,Bursa,4463.8,3,,
+10180, Fatma Şahin,İstanbul,3755.61,1,,Ev
+10181,Bilinmiyor,İstanbul,4459.42,6,,
+10182,AYŞE KAYA,Ankara,4472.56,9,,Elektronik
+10183,Mehmet  Demir,İzmir,2618.35,7,,Elektronik
+10184,Bilinmiyor,Bursa,1613.85,5,,?
+10185,ahmet yılmaz,İstanbul,3871.46,4,,Giyim
+10186,AYŞE KAYA,İstanbul,3325.22,3,,Ev
+10187,Mehmet  Demir,Ankara,1899.61,2,,Ev
+10188, Fatma Şahin,İzmir,517.61,6,,Ev
+10189,ahmet yılmaz,Bursa,3746.61,6,,
+10190,AYŞE KAYA,İstanbul,1349.18,1,,Elektronik
+10191,Mehmet  Demir,İstanbul,4687.23,4,,?
+10192, Fatma Şahin,Ankara,1242.8,3,,
+10193,ahmet yılmaz,İzmir,657.65,2,,?
+10194,AYŞE KAYA,Bursa,4164.01,7,,Giyim
+10195,Mehmet  Demir,İstanbul,808.76,5,,Elektronik
+10196, Fatma Şahin,İstanbul,937.38,6,,?
+10197,ahmet yılmaz,Ankara,50.0,7,,Ev
+10198,Bilinmiyor,İzmir,4379.08,9,,Elektronik
+10199,Mehmet  Demir,Bursa,50.0,8,,Giyim
+10200, Fatma Şahin,İstanbul,1586.1,6,,
+10201,ahmet yılmaz,İstanbul,3898.15,8,,Giyim
+10202,Bilinmiyor,Ankara,4860.54,5,,
+10203,Mehmet  Demir,İzmir,2528.67,9,,?
+10204, Fatma Şahin,Bursa,762.29,7,,Elektronik
+10205,ahmet yılmaz,İstanbul,118.98,6,,
+10206,AYŞE KAYA,İstanbul,1186.8,9,,
+10207,Mehmet  Demir,Ankara,50.0,5,,
+10208, Fatma Şahin,İzmir,3404.41,7,,
+10209,ahmet yılmaz,Bursa,653.07,3,,Giyim
+10210,AYŞE KAYA,İstanbul,2556.33,9,,
+10211,Mehmet  Demir,İstanbul,3486.6,6,,Giyim
+10212, Fatma Şahin,Ankara,2926.53,8,,Ev
+10213,ahmet yılmaz,İzmir,1038.89,5,,
+10214,AYŞE KAYA,Bursa,4030.42,8,,?
+10215,Mehmet  Demir,İstanbul,3591.27,1,,?
+10216, Fatma Şahin,İstanbul,3707.97,2,,
+10217,ahmet yılmaz,Ankara,698.74,5,,?
+10218,AYŞE KAYA,İzmir,50.0,7,,Giyim
+10219,Mehmet  Demir,Bursa,4641.43,8,,Ev
+10220, Fatma Şahin,İstanbul,2018.01,4,,Ev
+10221,ahmet yılmaz,İstanbul,1539.7,6,,Elektronik
+10222,AYŞE KAYA,Ankara,2468.49,5,,?
+10223,Mehmet  Demir,İzmir,3331.18,9,,?
+10224, Fatma Şahin,Bursa,4780.34,6,,?
+10225,ahmet yılmaz,İstanbul,50.0,4,,Ev
+10226,AYŞE KAYA,İstanbul,4627.8,9,,?
+10227,Bilinmiyor,Ankara,173.05,1,,
+10228, Fatma Şahin,İzmir,2798.23,9,,Ev
+10229,ahmet yılmaz,Bursa,3188.18,2,,Ev
+10230,AYŞE KAYA,İstanbul,50.0,3,,Elektronik
+10231,Mehmet  Demir,İstanbul,50.0,8,,?
+10232, Fatma Şahin,Ankara,2124.62,7,,
+10233,ahmet yılmaz,İzmir,4832.85,9,,?
+10234,AYŞE KAYA,Bursa,3000.41,7,,
+10235,Mehmet  Demir,İstanbul,4668.46,6,,
+10236, Fatma Şahin,İstanbul,4031.59,4,,?
+10237,ahmet yılmaz,Ankara,50.0,1,,Ev
+10238,AYŞE KAYA,İzmir,3934.58,2,,Elektronik
+10239,Mehmet  Demir,Bursa,138.29,3,,Elektronik
+10240, Fatma Şahin,İstanbul,590.26,1,,Giyim
+10241,ahmet yılmaz,İstanbul,4155.67,5,,Ev
+10242,AYŞE KAYA,Ankara,3994.24,7,,?
+10243,Mehmet  Demir,İzmir,1201.57,9,,Ev
+10244, Fatma Şahin,Bursa,2677.31,5,,Elektronik
+10245,ahmet yılmaz,İstanbul,3049.78,8,,Giyim
+10246,AYŞE KAYA,İstanbul,4345.31,9,,
+10247,Mehmet  Demir,Ankara,3035.38,8,,
+10248, Fatma Şahin,İzmir,2092.23,5,,Giyim
+10249,ahmet yılmaz,Bursa,50.0,3,02-Ocak-2024 00:00:00,
+10250,AYŞE KAYA,İstanbul,2158.12,9,02-Ocak-2024 03:00:00,?
+10251,Mehmet  Demir,İstanbul,3277.06,3,02-Ocak-2024 06:00:00,
+10252, Fatma Şahin,Ankara,4344.08,4,02-Ocak-2024 09:00:00,
+10253,ahmet yılmaz,İzmir,2296.79,1,02-Ocak-2024 12:00:00,?
+10254,AYŞE KAYA,Bursa,1276.81,8,02-Ocak-2024 15:00:00,Giyim
+10255,Mehmet  Demir,İstanbul,1221.48,6,02-Ocak-2024 18:00:00,
+10256, Fatma Şahin,İstanbul,3742.77,1,02-Ocak-2024 21:00:00,Giyim
+10257,ahmet yılmaz,Ankara,4092.02,2,02-Şubat-2024 00:00:00,Giyim
+10258,AYŞE KAYA,İzmir,571.13,5,02-Şubat-2024 03:00:00,?
+10259,Mehmet  Demir,Bursa,379.47,5,02-Şubat-2024 06:00:00,Ev
+10260, Fatma Şahin,İstanbul,2992.45,8,02-Şubat-2024 09:00:00,Ev
+10261,ahmet yılmaz,İstanbul,773.56,3,02-Şubat-2024 12:00:00,Giyim
+10262,AYŞE KAYA,Ankara,4132.09,9,02-Şubat-2024 15:00:00,Ev
+10263,Mehmet  Demir,İzmir,50.0,5,02-Şubat-2024 18:00:00,Elektronik
+10264, Fatma Şahin,Bursa,762.17,8,02-Şubat-2024 21:00:00,?
+10265,ahmet yılmaz,İstanbul,4608.8,3,02-Mart-2024 00:00:00,Ev
+10266,Bilinmiyor,İstanbul,869.38,1,02-Mart-2024 03:00:00,
+10267,Mehmet  Demir,Ankara,1459.36,1,02-Mart-2024 06:00:00,Ev
+10268, Fatma Şahin,İzmir,810.39,4,02-Mart-2024 09:00:00,Ev
+10269,ahmet yılmaz,Bursa,621.68,9,02-Mart-2024 12:00:00,Elektronik
+10270,AYŞE KAYA,İstanbul,154.68,1,02-Mart-2024 15:00:00,Elektronik
+10271,Mehmet  Demir,İstanbul,324.21,4,02-Mart-2024 18:00:00,Giyim
+10272, Fatma Şahin,Ankara,914.48,1,02-Mart-2024 21:00:00,Giyim
+10273,ahmet yılmaz,İzmir,314.24,9,02-Nisan-2024 00:00:00,Giyim
+10274,AYŞE KAYA,Bursa,2976.16,7,02-Nisan-2024 03:00:00,Giyim
+10275,Mehmet  Demir,İstanbul,3419.54,7,02-Nisan-2024 06:00:00,?
+10276, Fatma Şahin,İstanbul,1998.47,7,02-Nisan-2024 09:00:00,Elektronik
+10277,ahmet yılmaz,Ankara,1624.06,6,02-Nisan-2024 12:00:00,Giyim
+10278,AYŞE KAYA,İzmir,50.0,7,02-Nisan-2024 15:00:00,Elektronik
+10279,Mehmet  Demir,Bursa,4381.27,1,02-Nisan-2024 18:00:00,Giyim
+10280, Fatma Şahin,İstanbul,4263.1,8,02-Nisan-2024 21:00:00,?
+10281,ahmet yılmaz,İstanbul,265.2,7,02-Mayıs-2024 00:00:00,
+10282,AYŞE KAYA,Ankara,948.42,7,02-Mayıs-2024 03:00:00,Giyim
+10283,Mehmet  Demir,İzmir,1221.89,4,02-Mayıs-2024 06:00:00,Elektronik
+10284, Fatma Şahin,Bursa,1284.47,8,02-Mayıs-2024 09:00:00,
+10285,ahmet yılmaz,İstanbul,2877.6,4,02-Mayıs-2024 12:00:00,?
+10286,AYŞE KAYA,İstanbul,2110.5,1,02-Mayıs-2024 15:00:00,Giyim
+10287,Mehmet  Demir,Ankara,293.81,9,02-Mayıs-2024 18:00:00,Elektronik
+10288, Fatma Şahin,İzmir,1899.39,3,02-Mayıs-2024 21:00:00,Elektronik
+10289,ahmet yılmaz,Bursa,2642.58,1,02-Haziran-2024 00:00:00,Ev
+10290,AYŞE KAYA,İstanbul,553.28,6,02-Haziran-2024 03:00:00,?
+10291,Mehmet  Demir,İstanbul,4175.62,3,02-Haziran-2024 06:00:00,Ev
+10292, Fatma Şahin,Ankara,50.0,8,02-Haziran-2024 09:00:00,
+10293,ahmet yılmaz,İzmir,4627.97,4,02-Haziran-2024 12:00:00,Giyim
+10294,AYŞE KAYA,Bursa,540.61,1,02-Haziran-2024 15:00:00,Giyim
+10295,Mehmet  Demir,İstanbul,4225.7,9,02-Haziran-2024 18:00:00,
+10296, Fatma Şahin,İstanbul,4518.13,5,02-Haziran-2024 21:00:00,Giyim
+10297,ahmet yılmaz,Ankara,4898.87,3,02-Temmuz-2024 00:00:00,
+10298,AYŞE KAYA,İzmir,4020.03,7,02-Temmuz-2024 03:00:00,Elektronik
+10299,Mehmet  Demir,Bursa,3908.41,5,02-Temmuz-2024 06:00:00,Ev
+10300, Fatma Şahin,İstanbul,50.0,1,02-Temmuz-2024 09:00:00,Ev
+10301,ahmet yılmaz,İstanbul,3906.03,7,02-Temmuz-2024 12:00:00,Elektronik
+10302,AYŞE KAYA,Ankara,716.03,4,02-Temmuz-2024 15:00:00,Ev
+10303,Mehmet  Demir,İzmir,2703.54,7,02-Temmuz-2024 18:00:00,Ev
+10304, Fatma Şahin,Bursa,2595.4,9,02-Temmuz-2024 21:00:00,Giyim
+10305,ahmet yılmaz,İstanbul,4294.98,6,02-Ağustos-2024 00:00:00,Elektronik
+10306,AYŞE KAYA,İstanbul,2340.86,7,02-Ağustos-2024 03:00:00,Elektronik
+10307,Mehmet  Demir,Ankara,50.0,3,02-Ağustos-2024 06:00:00,Elektronik
+10308, Fatma Şahin,İzmir,3215.84,3,02-Ağustos-2024 09:00:00,Ev
+10309,ahmet yılmaz,Bursa,1368.99,4,02-Ağustos-2024 12:00:00,Elektronik
+10310,AYŞE KAYA,İstanbul,741.85,8,02-Ağustos-2024 15:00:00,
+10311,Mehmet  Demir,İstanbul,2415.49,5,02-Ağustos-2024 18:00:00,Giyim
+10312, Fatma Şahin,Ankara,2113.6,4,02-Ağustos-2024 21:00:00,?
+10313,ahmet yılmaz,İzmir,1201.22,8,02-Eylül-2024 00:00:00,?
+10314,AYŞE KAYA,Bursa,1869.18,8,02-Eylül-2024 03:00:00,Ev
+10315,Mehmet  Demir,İstanbul,1863.64,9,02-Eylül-2024 06:00:00,
+10316, Fatma Şahin,İstanbul,1671.1,3,02-Eylül-2024 09:00:00,Elektronik
+10317,ahmet yılmaz,Ankara,50.0,7,02-Eylül-2024 12:00:00,Giyim
+10318,AYŞE KAYA,İzmir,3444.43,6,02-Eylül-2024 15:00:00,Giyim
+10319,Mehmet  Demir,Bursa,1519.54,5,02-Eylül-2024 18:00:00,Elektronik
+10320, Fatma Şahin,İstanbul,4746.85,4,02-Eylül-2024 21:00:00,Giyim
+10321,ahmet yılmaz,İstanbul,4585.92,2,02-Ekim-2024 00:00:00,Giyim
+10322,AYŞE KAYA,Ankara,2430.51,3,02-Ekim-2024 03:00:00,?
+10323,Mehmet  Demir,İzmir,1675.39,5,02-Ekim-2024 06:00:00,Giyim
+10324, Fatma Şahin,Bursa,50.0,8,02-Ekim-2024 09:00:00,
+10325,ahmet yılmaz,İstanbul,4250.37,8,02-Ekim-2024 12:00:00,?
+10326,AYŞE KAYA,İstanbul,3280.31,2,02-Ekim-2024 15:00:00,
+10327,Mehmet  Demir,Ankara,4031.74,7,02-Ekim-2024 18:00:00,Elektronik
+10328, Fatma Şahin,İzmir,2686.98,1,02-Ekim-2024 21:00:00,
+10329,ahmet yılmaz,Bursa,3182.94,7,02-Kasım-2024 00:00:00,?
+10330,Bilinmiyor,İstanbul,50.0,4,02-Kasım-2024 03:00:00,
+10331,Mehmet  Demir,İstanbul,3687.72,5,02-Kasım-2024 06:00:00,Giyim
+10332, Fatma Şahin,Ankara,1051.9,7,02-Kasım-2024 09:00:00,
+10333,ahmet yılmaz,İzmir,3489.25,4,02-Kasım-2024 12:00:00,Ev
+10334,AYŞE KAYA,Bursa,4310.56,8,02-Kasım-2024 15:00:00,Elektronik
+10335,Mehmet  Demir,İstanbul,703.91,5,02-Kasım-2024 18:00:00,Ev
+10336, Fatma Şahin,İstanbul,3091.18,9,02-Kasım-2024 21:00:00,Elektronik
+10337,ahmet yılmaz,Ankara,520.72,6,02-Aralık-2024 00:00:00,
+10338,AYŞE KAYA,İzmir,3642.29,3,02-Aralık-2024 03:00:00,Giyim
+10339,Mehmet  Demir,Bursa,468.24,7,02-Aralık-2024 06:00:00,Giyim
+10340, Fatma Şahin,İstanbul,50.0,4,02-Aralık-2024 09:00:00,Ev
+10341,ahmet yılmaz,İstanbul,730.17,5,02-Aralık-2024 12:00:00,Ev
+10342,AYŞE KAYA,Ankara,4796.46,2,02-Aralık-2024 15:00:00,Elektronik
+10343,Mehmet  Demir,İzmir,4014.38,2,02-Aralık-2024 18:00:00,
+10344, Fatma Şahin,Bursa,2988.73,6,02-Aralık-2024 21:00:00,
+10345,ahmet yılmaz,İstanbul,3923.99,2,,?
+10346,AYŞE KAYA,İstanbul,3985.82,9,,?
+10347,Mehmet  Demir,Ankara,4732.83,8,,Ev
+10348, Fatma Şahin,İzmir,1304.25,7,,Ev
+10349,ahmet yılmaz,Bursa,2970.88,7,,
+10350,AYŞE KAYA,İstanbul,520.49,6,,Elektronik
+10351,Mehmet  Demir,İstanbul,3100.02,1,,Elektronik
+10352, Fatma Şahin,Ankara,897.89,4,,Giyim
+10353,ahmet yılmaz,İzmir,2846.51,5,,Ev
+10354,AYŞE KAYA,Bursa,2883.53,9,,Elektronik
+10355,Mehmet  Demir,İstanbul,2356.63,2,,Elektronik
+10356, Fatma Şahin,İstanbul,2637.03,5,,
+10357,ahmet yılmaz,Ankara,3831.42,4,,Giyim
+10358,Bilinmiyor,İzmir,4006.26,2,,Ev
+10359,Mehmet  Demir,Bursa,2486.16,1,,Ev
+10360, Fatma Şahin,İstanbul,50.0,4,,
+10361,ahmet yılmaz,İstanbul,4659.62,1,,?
+10362,AYŞE KAYA,Ankara,642.68,1,,Giyim
+10363,Mehmet  Demir,İzmir,629.66,4,,
+10364, Fatma Şahin,Bursa,50.0,2,,Giyim
+10365,ahmet yılmaz,İstanbul,3306.42,5,,
+10366,AYŞE KAYA,İstanbul,2122.11,1,,Ev
+10367,Mehmet  Demir,Ankara,3882.89,3,,Elektronik
+10368,Bilinmiyor,İzmir,3372.6,5,,?
+10369,ahmet yılmaz,Bursa,1701.51,9,,Elektronik
+10370,Bilinmiyor,İstanbul,4496.91,6,,?
+10371,Mehmet  Demir,İstanbul,3824.53,8,,Elektronik
+10372, Fatma Şahin,Ankara,1389.15,4,,Giyim
+10373,ahmet yılmaz,İzmir,1852.75,5,,?
+10374,Bilinmiyor,Bursa,1606.48,4,,
+10375,Bilinmiyor,İstanbul,830.18,8,,Ev
+10376,Bilinmiyor,İstanbul,781.53,9,,Elektronik
+10377,ahmet yılmaz,Ankara,4683.83,9,,Giyim
+10378,AYŞE KAYA,İzmir,2217.62,7,,
+10379,Mehmet  Demir,Bursa,1947.43,5,,?
+10380, Fatma Şahin,İstanbul,3661.94,5,,Elektronik
+10381,ahmet yılmaz,İstanbul,2787.32,9,,Giyim
+10382,AYŞE KAYA,Ankara,4683.89,3,,Giyim
+10383,Mehmet  Demir,İzmir,3912.49,4,,Elektronik
+10384, Fatma Şahin,Bursa,2422.88,9,,
+10385,ahmet yılmaz,İstanbul,1912.98,4,,?
+10386,AYŞE KAYA,İstanbul,4933.83,3,,Elektronik
+10387,Mehmet  Demir,Ankara,3602.91,6,,?
+10388, Fatma Şahin,İzmir,4758.41,3,,Ev
+10389,ahmet yılmaz,Bursa,636.47,9,,Elektronik
+10390,AYŞE KAYA,İstanbul,4260.14,9,,Ev
+10391,Mehmet  Demir,İstanbul,3203.52,3,,Elektronik
+10392, Fatma Şahin,Ankara,653.51,5,,Giyim
+10393,ahmet yılmaz,İzmir,2961.88,9,,
+10394,AYŞE KAYA,Bursa,50.0,7,,?
+10395,Mehmet  Demir,İstanbul,110.9,2,,Elektronik
+10396, Fatma Şahin,İstanbul,2298.87,6,,
+10397,ahmet yılmaz,Ankara,4135.73,6,,Ev
+10398,AYŞE KAYA,İzmir,1512.03,6,,
+10399,Mehmet  Demir,Bursa,50.0,1,,?
+10400, Fatma Şahin,İstanbul,2239.45,3,,Giyim
+10401,ahmet yılmaz,İstanbul,1544.54,8,,Ev
+10402,AYŞE KAYA,Ankara,4596.29,3,,Ev
+10403,Mehmet  Demir,İzmir,3917.41,3,,?
+10404, Fatma Şahin,Bursa,597.41,3,,Giyim
+10405,ahmet yılmaz,İstanbul,4985.32,2,,Giyim
+10406,AYŞE KAYA,İstanbul,4402.04,2,,Giyim
+10407,Mehmet  Demir,Ankara,1455.35,4,,Giyim
+10408, Fatma Şahin,İzmir,4192.64,8,,Elektronik
+10409,ahmet yılmaz,Bursa,576.78,1,,Elektronik
+10410,AYŞE KAYA,İstanbul,4995.57,3,,
+10411,Mehmet  Demir,İstanbul,3345.14,1,,Elektronik
+10412, Fatma Şahin,Ankara,3268.12,6,,
+10413,ahmet yılmaz,İzmir,497.68,3,,Elektronik
+10414,AYŞE KAYA,Bursa,4490.32,8,,?
+10415,Mehmet  Demir,İstanbul,193.55,6,,Giyim
+10416, Fatma Şahin,İstanbul,1242.1,8,,Ev
+10417,ahmet yılmaz,Ankara,757.96,6,,Giyim
+10418,AYŞE KAYA,İzmir,3895.0,4,,Ev
+10419,Mehmet  Demir,Bursa,1031.11,8,,Ev
+10420, Fatma Şahin,İstanbul,4557.66,5,,Ev
+10421,ahmet yılmaz,İstanbul,3298.53,9,,Giyim
+10422,AYŞE KAYA,Ankara,229.01,9,,Ev
+10423,Mehmet  Demir,İzmir,76.88,6,,
+10424, Fatma Şahin,Bursa,50.0,7,,Ev
+10425,ahmet yılmaz,İstanbul,3049.33,3,,Giyim
+10426,AYŞE KAYA,İstanbul,4017.33,8,,Elektronik
+10427,Mehmet  Demir,Ankara,1230.84,7,,Giyim
+10428, Fatma Şahin,İzmir,4254.57,9,,Elektronik
+10429,ahmet yılmaz,Bursa,333.3,3,,Elektronik
+10430,AYŞE KAYA,İstanbul,4014.77,8,,
+10431,Mehmet  Demir,İstanbul,4642.59,5,,Elektronik
+10432, Fatma Şahin,Ankara,3871.94,2,,Ev
+10433,ahmet yılmaz,İzmir,3505.7,2,,
+10434,AYŞE KAYA,Bursa,4198.0,6,,
+10435,Mehmet  Demir,İstanbul,248.75,3,,Elektronik
+10436, Fatma Şahin,İstanbul,1048.82,1,,Elektronik
+10437,ahmet yılmaz,Ankara,668.37,4,,Giyim
+10438,AYŞE KAYA,İzmir,2547.43,6,,Ev
+10439,Mehmet  Demir,Bursa,3738.68,3,,
+10440, Fatma Şahin,İstanbul,50.0,9,,Giyim
+10441,ahmet yılmaz,İstanbul,4263.1,8,,Elektronik
+10442,AYŞE KAYA,Ankara,818.3,5,,Giyim
+10443,Mehmet  Demir,İzmir,3686.37,9,,
+10444, Fatma Şahin,Bursa,1005.56,4,,Elektronik
+10445,ahmet yılmaz,İstanbul,1390.26,2,,Giyim
+10446,AYŞE KAYA,İstanbul,3564.03,1,,Elektronik
+10447,Bilinmiyor,Ankara,4902.01,9,,Elektronik
+10448, Fatma Şahin,İzmir,3077.14,9,,
+10449,ahmet yılmaz,Bursa,319.78,7,,Elektronik
+10450,AYŞE KAYA,İstanbul,3100.73,1,,Giyim
+10451,Mehmet  Demir,İstanbul,259.64,3,,
+10452, Fatma Şahin,Ankara,4426.52,1,,?
+10453,ahmet yılmaz,İzmir,3562.41,1,,Elektronik
+10454,AYŞE KAYA,Bursa,906.98,3,,
+10455,Mehmet  Demir,İstanbul,504.02,6,,
+10456, Fatma Şahin,İstanbul,958.49,1,,Ev
+10457,ahmet yılmaz,Ankara,4901.13,9,,Ev
+10458,AYŞE KAYA,İzmir,2319.88,5,,Ev
+10459,Mehmet  Demir,Bursa,3931.2,3,,?
+10460, Fatma Şahin,İstanbul,3200.22,5,,Elektronik
+10461,ahmet yılmaz,İstanbul,50.0,8,,
+10462,AYŞE KAYA,Ankara,768.39,3,,
+10463,Mehmet  Demir,İzmir,4732.82,1,,Elektronik
+10464, Fatma Şahin,Bursa,1541.65,1,,
+10465,ahmet yılmaz,İstanbul,2911.19,8,,
+10466,AYŞE KAYA,İstanbul,3513.89,2,,?
+10467,Mehmet  Demir,Ankara,3263.7,6,,Giyim
+10468, Fatma Şahin,İzmir,4705.94,4,,Ev
+10469,ahmet yılmaz,Bursa,784.77,7,,
+10470,AYŞE KAYA,İstanbul,2566.35,1,,Elektronik
+10471,Mehmet  Demir,İstanbul,2049.97,9,,
+10472, Fatma Şahin,Ankara,2397.14,7,,
+10473,ahmet yılmaz,İzmir,640.13,5,,?
+10474,Bilinmiyor,Bursa,713.77,2,,Giyim
+10475,Mehmet  Demir,İstanbul,1426.47,9,,Ev
+10476, Fatma Şahin,İstanbul,50.0,3,,Elektronik
+10477,ahmet yılmaz,Ankara,2168.12,5,,
+10478,AYŞE KAYA,İzmir,3074.39,4,,Giyim
+10479,Mehmet  Demir,Bursa,3191.41,3,,Elektronik
+10480, Fatma Şahin,İstanbul,2088.46,4,,?
+10481,ahmet yılmaz,İstanbul,2073.48,2,03-Ocak-2024 00:00:00,?
+10482,AYŞE KAYA,Ankara,1127.26,1,03-Ocak-2024 03:00:00,?
+10483,Mehmet  Demir,İzmir,2962.12,3,03-Ocak-2024 06:00:00,Elektronik
+10484, Fatma Şahin,Bursa,1619.35,2,03-Ocak-2024 09:00:00,?
+10485,ahmet yılmaz,İstanbul,228.5,4,03-Ocak-2024 12:00:00,?
+10486,AYŞE KAYA,İstanbul,2121.08,8,03-Ocak-2024 15:00:00,?
+10487,Mehmet  Demir,Ankara,2396.96,2,03-Ocak-2024 18:00:00,
+10488, Fatma Şahin,İzmir,1166.68,1,03-Ocak-2024 21:00:00,Giyim
+10489,ahmet yılmaz,Bursa,2883.67,1,03-Şubat-2024 00:00:00,Giyim
+10490,AYŞE KAYA,İstanbul,2850.57,5,03-Şubat-2024 03:00:00,
+10491,Mehmet  Demir,İstanbul,3524.91,3,03-Şubat-2024 06:00:00,Ev
+10492, Fatma Şahin,Ankara,3257.34,5,03-Şubat-2024 09:00:00,Ev
+10493,ahmet yılmaz,İzmir,3279.54,1,03-Şubat-2024 12:00:00,Giyim
+10494,AYŞE KAYA,Bursa,50.0,3,03-Şubat-2024 15:00:00,?
+10495,Mehmet  Demir,İstanbul,3947.79,4,03-Şubat-2024 18:00:00,?
+10496,Bilinmiyor,İstanbul,2768.26,4,03-Şubat-2024 21:00:00,Elektronik
+10497,ahmet yılmaz,Ankara,2185.52,5,03-Mart-2024 00:00:00,Ev
+10498,AYŞE KAYA,İzmir,3148.76,8,03-Mart-2024 03:00:00,
+10499,Mehmet  Demir,Bursa,1835.25,5,03-Mart-2024 06:00:00,Giyim
+10500, Fatma Şahin,İstanbul,2588.06,8,03-Mart-2024 09:00:00,Giyim
