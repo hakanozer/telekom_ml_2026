@@ -113,7 +113,17 @@ gecerli_kategoriler = {
 # geçerli kategoriler: Elektronik, Giyim, Ev, Kozmetik, Spor
 kategoriler = ["Kozmetik", "Elektronik", "Giyim", "Ev", "Spor"]
 cevap = benzer_kategori("spr", kategoriler)
-print(f"'onik' kategorisine en çok benzeyen kategori: {cevap}")
+print(f"'spr' kategorisine en çok benzeyen kategori: {cevap}")
+# benzer_kategori fonksiyonunu kullanarak kategori sütunundaki benzer kategorileri düzelt
+df["kategori"] = df["kategori"].apply(lambda x: benzer_kategori(x, kategoriler) if pd.notna(x) else x)
+
+# musteri_adi değerlerini önce küçük harfe çevir, sonra baş harflerini büyük yap
+df["musteri_adi"] = df["musteri_adi"].str.lower().str.title()
+
+# her satır için fiyat ile adet çarpımını yeni bir sütun olarak ekle ve sütun adına toplam de.
+# round 2 seviyesi ile fiyat ve toplam sütunlarını yuvarla
+df["toplam"] = (df["fiyat"] * df["adet"]).round(2)
 
 # temiz sipariş verisini csv dosyasına kaydet
 df.to_csv("data/raw/siparisler_temiz.csv", index=False)
+
