@@ -1,7 +1,7 @@
 siparis_id,musteri_adi,sehir,fiyat,adet,tarih,kategori
 10001,ahmet yılmaz,istanbul,3881.08,8,2024-01-01 00:00:00,Ev
-10002,AYŞE KAYA,Ankara,2222.45,7,2024-01-01 03:00:00,Giyim
-10003,Mehmet  Demir,İZMİR,4300.06,6,2024 01 06:00:00,Giyim
+10002,AYŞE KAYA,Ankara,2222.45,7,2024-01-01 03:00:00,Merkaz
+10003,Mehmet  Demir,İZMİR,4300.06,6,2024 01 06:00:00,Gym
 10004, Fatma Şahin,bursa,3501.97,8,2024-01-01 09:00:00,Giyim
 10005,ahmet yılmaz,Istanbul,516.18,2,2024-01-01 12:00:00,Ev
 10006,AYŞE KAYA,istanbul,4879.33,9,2024-01-01 15:00:00,Giyim
@@ -21,7 +21,7 @@ siparis_id,musteri_adi,sehir,fiyat,adet,tarih,kategori
 10020, Fatma Şahin,Istanbul,3176.74,2,2024-01-03 09:00:00,Ev
 10021,ahmet yılmaz,istanbul,,1,2024-01-03 12:00:00,N/A
 10022,AYŞE KAYA,Ankara,1804.9,1,2024-01-03 15:00:00,?
-10023,Mehmet  Demir,İZMİR,4854.96,8,2024-01-03 18:00:00,Elektronik
+10023,Mehmet  Demir,İZMİR,4854.96,8,2024-01-03 18:00:00,Elk
 10024, Fatma Şahin,bursa,4470.95,8,2024-01-03 21:00:00,Elektronik
 10025,ahmet yılmaz,Istanbul,3903.0,8,2024-01-04 00:00:00,?
 10026,AYŞE KAYA,istanbul,1013.46,1,2024-01-04 03:00:00,Elektronik
@@ -34,9 +34,9 @@ siparis_id,musteri_adi,sehir,fiyat,adet,tarih,kategori
 10033,ahmet yılmaz,İZMİR,1662.84,7,2024-01-05 00:00:00,N/A
 10034,AYŞE KAYA,bursa,1883.78,3,2024-01-05 03:00:00,Elektronik
 10035,Mehmet  Demir,Istanbul,2374.3,1,2024-01-05 06:00:00,N/A
-10036, Fatma Şahin,istanbul,987.88,7,2024-01-05 09:00:00,Elektronik
+10036, Fatma Şahin,istanbul,987.88,7,2024-01-05 09:00:00,Elek
 10037,ahmet yılmaz,Ankara,,9,2024-01-05 12:00:00,Elektronik
-10038,AYŞE KAYA,İZMİR,2404.74,1,2024-01-05 15:00:00,Elektronik
+10038,AYŞE KAYA,İZMİR,2404.74,1,2024-01-05 15:00:00,Elekt
 10039,Mehmet  Demir,bursa,1173.2,4,2024-01-05 18:00:00,?
 10040, Fatma Şahin,Istanbul,3365.58,8,2024-01-05 21:00:00,?
 10041,ahmet yılmaz,istanbul,2213.9,7,2024-01-06 00:00:00,Ev

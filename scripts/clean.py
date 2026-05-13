@@ -3,6 +3,7 @@ import locale
 import pandas as pd
 import numpy as np
 from scipy import stats
+from difflib import SequenceMatcher
 
 # bu programda tarih ve saat türkçe dile uygun olmalıdır.
 locale.setlocale(locale.LC_TIME, "tr_TR.UTF-8")
@@ -17,6 +18,17 @@ def eksik_raporu(df):
         "Veri Tipi":  df.dtypes
     })
     return rapor[rapor["Eksik Sayı"] > 0].sort_values("Oran (%)", ascending=False)
+
+
+# gönderilen kategori adına en çok benzeyen kategori adını döndüren fonksiyon
+def benzer_kategori(kategori, kategoriler):
+    skorlar = [
+        SequenceMatcher(None, kategori.lower(), k.lower()).ratio()
+        for k in kategoriler
+    ]
+    en_benzeyen = kategoriler[skorlar.index(max(skorlar))]
+    return en_benzeyen
+
 
 # Kirli e-ticaret verisi simülasyonu
 rng = np.random.default_rng(42)
@@ -92,6 +104,16 @@ df["tarih"] = pd.to_datetime(df["tarih"], errors="coerce").dt.strftime("%d-%m-%Y
 # tarihlerdeki aylarda rakam yerine ay adını türkçe olarak yaz
 df["tarih"] = pd.to_datetime(df["tarih"], errors="coerce").dt.strftime("%d-%B-%Y %H:%M:%S")
 
+gecerli_kategoriler = {
+    "Elk": "Elektronik",
+    "Elekt": "Elektronik",
+    "Gym": "Giyim"
+}
+
+# geçerli kategoriler: Elektronik, Giyim, Ev, Kozmetik, Spor
+kategoriler = ["Kozmetik", "Elektronik", "Giyim", "Ev", "Spor"]
+cevap = benzer_kategori("spr", kategoriler)
+print(f"'onik' kategorisine en çok benzeyen kategori: {cevap}")
 
 # temiz sipariş verisini csv dosyasına kaydet
 df.to_csv("data/raw/siparisler_temiz.csv", index=False)
