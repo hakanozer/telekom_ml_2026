@@ -126,4 +126,3 @@ df["toplam"] = (df["fiyat"] * df["adet"]).round(2)
 
 # temiz sipariş verisini csv dosyasına kaydet
 df.to_csv("data/raw/siparisler_temiz.csv", index=False)
-
