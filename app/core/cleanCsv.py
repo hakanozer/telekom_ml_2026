@@ -7,6 +7,7 @@ from difflib import SequenceMatcher
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
+from ..core.ml import toplam_tahmin_modeli
 
 from scripts.clean import benzer_kategori
 
@@ -67,9 +68,15 @@ class cleanCsv:
         grafik_2 = self.son_ay_en_cok_alim_yapan_musteriler(df)
         grafik_3 = self.en_cok_satilan_10_sehir(df)
         
+        # ML Data Hazırlığı
+        ml_sonuclari = {
+            "toplam_tahmin": self.toplam_tahmin_modeli(df),
+        }
+        
         # çıktı { "data": df, "grafikler": [grafik_1, grafik_2, grafik_3] } şeklinde olacak
         jsonData = df.to_dict(orient="records")
         dict = {
+            "ml_sonuclari": ml_sonuclari,
             "grafikler": [grafik_1, grafik_2, grafik_3],
             "data": jsonData
         }
