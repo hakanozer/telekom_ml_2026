@@ -6,6 +6,7 @@
     <title>Analiz Raporu</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -152,6 +153,11 @@
             color: var(--text-secondary); letter-spacing: .05em;
         }
         .chart-card img { width: 100%; height: auto; display: block; padding: .75rem; }
+        .chart-canvas-wrap {
+            position: relative;
+            height: 280px;
+            padding: .75rem;
+        }
         .chart-placeholder {
             display: flex; flex-direction: column;
             align-items: center; justify-content: center;
@@ -373,7 +379,11 @@
         <!-- Grafikler -->
         <div class="mt-section">
             <div class="section-label">📊 Grafikler</div>
-            <div class="row g-3" id="charts-row"></div>
+            <h6 class="text-secondary small text-uppercase mb-2">Görsel Grafikler</h6>
+            <div class="row g-3" id="image-charts-row"></div>
+
+            <h6 class="text-secondary small text-uppercase mb-2 mt-4">Interaktif Grafikler (Chart.js)</h6>
+            <div class="row g-3" id="chartjs-row"></div>
         </div>
 
         <!-- Veri Tablosu -->
@@ -400,7 +410,7 @@
             <!-- Tablo -->
             <div class="table-card">
                 <div class="table-responsive">
-                    <table class="data-table" id="dataTable">
+                    <table class="data-table table table-striped table-hover align-middle mb-0" id="dataTable">
                         <thead>
                             <!-- Sıralama başlıkları -->
                             <tr class="sort-row">
@@ -490,6 +500,7 @@
     let sortDir      = 1;
     const colFilters = {};   // { col: queryString }
     let globalQuery  = '';
+    const chartInstances = [];
 
     /* DOM */
     const $loading     = document.getElementById('loading-state');
@@ -528,8 +539,8 @@
     }
 
     /* Charts */
-    function buildCharts(grafikler, BASE) {
-        const row = document.getElementById('charts-row');
+    function buildCharts(grafikler) {
+        const row = document.getElementById('image-charts-row');
         row.innerHTML = '';
         if (!grafikler || !grafikler.length) {
             row.innerHTML = '<div class="col"><p class="text-muted">Grafik bulunamadı.</p></div>';
@@ -549,6 +560,93 @@
                          onerror="this.parentElement.innerHTML='<div class=\\'chart-placeholder\\'>🖼️<span>Grafik yüklenemedi</span></div>'">
                 </div>`;
             row.appendChild(col);
+        });
+    }
+
+    function buildInteractiveCharts(chartConfigs) {
+        const row = document.getElementById('chartjs-row');
+        row.innerHTML = '';
+
+        chartInstances.forEach(instance => instance.destroy());
+        chartInstances.length = 0;
+
+        if (!Array.isArray(chartConfigs) || !chartConfigs.length) {
+            row.innerHTML = '<div class="col"><p class="text-muted">Interaktif grafik bulunamadı.</p></div>';
+            return;
+        }
+
+        const cls = chartConfigs.length === 1 ? 'col-12'
+                  : chartConfigs.length === 2 ? 'col-12 col-md-6'
+                  : 'col-12 col-md-6 col-lg-4';
+
+        const guessFilterColumn = title => {
+            const t = String(title || '').toLowerCase();
+            if (t.includes('şehir') || t.includes('sehir')) return 'sehir';
+            if (t.includes('kategori')) return 'kategori';
+            if (t.includes('müşteri') || t.includes('musteri')) return 'musteri_adi';
+            return null;
+        };
+
+        const applyChartFilter = (col, value) => {
+            if (!col || value === undefined || value === null) return;
+            const textValue = String(value).trim();
+            if (!textValue) return;
+
+            colFilters[col] = textValue;
+
+            const inp = document.querySelector(`.col-filter-input[data-col="${col}"]`);
+            if (inp) {
+                inp.value = textValue;
+                inp.classList.add('active');
+                inp.focus();
+            }
+
+            applyFilters();
+        };
+
+        chartConfigs.forEach((cfg, idx) => {
+            const col = document.createElement('div');
+            const canvasId = `chartjs-canvas-${idx}`;
+            const title = cfg?.title || `Interaktif Grafik ${idx + 1}`;
+            const filterCol = guessFilterColumn(title);
+
+            col.className = cls;
+            col.innerHTML = `
+                <div class="chart-card">
+                    <div class="chart-card-header">${title}</div>
+                    <div class="chart-canvas-wrap">
+                        <canvas id="${canvasId}" aria-label="${title}"></canvas>
+                    </div>
+                </div>`;
+            row.appendChild(col);
+
+            const canvas = document.getElementById(canvasId);
+            if (!canvas) return;
+
+            const chart = new Chart(canvas, {
+                type: cfg.type || 'bar',
+                data: {
+                    labels: Array.isArray(cfg.labels) ? cfg.labels : [],
+                    datasets: Array.isArray(cfg.datasets) ? cfg.datasets : []
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    onClick: (_event, elements) => {
+                        if (!elements || !elements.length || !filterCol) return;
+                        const point = elements[0];
+                        const labels = Array.isArray(cfg.labels) ? cfg.labels : [];
+                        const selectedLabel = labels[point.index];
+                        applyChartFilter(filterCol, selectedLabel);
+                    },
+                    plugins: {
+                        legend: { display: true, position: 'bottom' },
+                        title: { display: true, text: title }
+                    }
+                }
+            });
+
+            chartInstances.push(chart);
         });
     }
 
@@ -718,8 +816,8 @@
             const res = await fetch(API_URL, { headers: { 'Accept': 'application/json' } });
             if (!res.ok) throw new Error(`Sunucu hatası: ${res.status} ${res.statusText}`);
             const json = await res.json();
-            const BASE = API_URL.replace(/\/[^/]+$/, '/') + 'charts/';
-            buildCharts(json.grafikler || [], BASE);
+            buildCharts(json.grafikler || []);
+            buildInteractiveCharts(json.chartjs_grafikler || []);
             allData      = Array.isArray(json.data) ? json.data : [];
             filteredData = [...allData];
             renderTable(filteredData);

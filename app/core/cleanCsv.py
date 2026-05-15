@@ -7,7 +7,7 @@ from difflib import SequenceMatcher
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
-from ..core.ml import toplam_tahmin_modeli
+from ..core.ml import kategori_tahmin_modeli, toplam_tahmin_modeli
 
 from scripts.clean import benzer_kategori
 
@@ -15,6 +15,38 @@ class cleanCsv:
     
     def __init__(self):
         print("cleanCsv sınıfı başlatıldı.")
+        
+        # -----------------------------
+    # JSON SAFE CONVERTER
+    # -----------------------------
+    def _safe_list(self, values):
+        return [
+            float(v) if isinstance(v, (np.floating, np.integer)) else v
+            for v in values
+        ]
+
+    def _modern_palette(self, n):
+        palette = [
+            "#6366F1", "#8B5CF6", "#EC4899", "#22C55E",
+            "#F59E0B", "#06B6D4", "#EF4444", "#14B8A6",
+            "#A855F7", "#84CC16"
+        ]
+        return [palette[i % len(palette)] for i in range(n)]
+
+    def _build_chartjs(self, chart_type, title, labels, data, label):
+        return {
+            "type": chart_type,
+            "title": title,
+            "labels": labels,
+            "datasets": [
+                {
+                    "label": label,
+                    "data": self._safe_list(data),
+                    "backgroundColor": self._modern_palette(len(labels)),
+                    "borderRadius": 8
+                }
+            ]
+        }    
     
     def clean_csv(self, df:pd.DataFrame):
         # fiyat değerleri hatalı, string yada 0 dan küçük yada boş olanları 0 ile doldur
@@ -68,9 +100,14 @@ class cleanCsv:
         grafik_2 = self.son_ay_en_cok_alim_yapan_musteriler(df)
         grafik_3 = self.en_cok_satilan_10_sehir(df)
         
+        chartjs_1 = self.kategori_bazli_toplam_satis_chartjs(df)
+        chartjs_2 = self.son_ay_en_cok_alim_yapan_musteriler_chartjs(df)
+        chartjs_3 = self.en_cok_satilan_10_sehir_chartjs(df)
+        
         # ML Data Hazırlığı
         ml_sonuclari = {
-            "toplam_tahmin": self.toplam_tahmin_modeli(df),
+            "toplam_tahmin_tl": toplam_tahmin_modeli(df),
+            "kategori_tahmin_modeli_yuzde": kategori_tahmin_modeli(df)
         }
         
         # çıktı { "data": df, "grafikler": [grafik_1, grafik_2, grafik_3] } şeklinde olacak
@@ -78,6 +115,7 @@ class cleanCsv:
         dict = {
             "ml_sonuclari": ml_sonuclari,
             "grafikler": [grafik_1, grafik_2, grafik_3],
+            "chartjs_grafikler": [chartjs_1, chartjs_2, chartjs_3],
             "data": jsonData
         }
 
@@ -159,3 +197,65 @@ class cleanCsv:
         plt.savefig("data/raw/en_cok_satilan_10_sehir.png")
         plt.close()
         return "en_cok_satilan_10_sehir.png"
+    
+    def kategori_bazli_toplam_satis_chartjs(self, df):
+        kategori_toplam = (
+            df.groupby("kategori")["toplam"]
+            .sum()
+            .sort_values(ascending=False)
+        )
+
+        return self._build_chartjs(
+            chart_type="bar",
+            title="Kategori Bazlı Toplam Satış",
+            labels=kategori_toplam.index.tolist(),
+            data=kategori_toplam.values.tolist(),
+            label="Toplam Satış"
+        )
+        
+    def son_ay_en_cok_alim_yapan_musteriler_chartjs(self, df):
+        df["tarih_dt"] = pd.to_datetime(
+            df["tarih"],
+            format="%d-%B-%Y %H:%M:%S",
+            errors="coerce"
+        )
+
+        max_tarih = df["tarih_dt"].max()
+        son_ay_df = df[df["tarih_dt"] >= (max_tarih - pd.Timedelta(days=30))]
+
+        musteri_toplam = (
+            son_ay_df.groupby("musteri_adi")["toplam"]
+            .sum()
+            .sort_values(ascending=False)
+            .head(5)
+        )
+
+        return self._build_chartjs(
+            chart_type="bar",
+            title="Son 30 Gün En Çok Harcayan 5 Müşteri",
+            labels=musteri_toplam.index.tolist(),
+            data=musteri_toplam.values.tolist(),
+            label="Toplam Harcama"
+        )
+        
+    def en_cok_satilan_10_sehir_chartjs(self, df):
+        sehir_toplam = (
+            df.groupby("sehir")["adet"]
+            .sum()
+            .sort_values(ascending=False)
+            .head(10)
+        )
+
+        return {
+            "type": "doughnut",
+            "title": "En Çok Satış Yapılan 10 Şehir",
+            "labels": sehir_toplam.index.tolist(),
+            "datasets": [
+                {
+                    "label": "Satış Adedi",
+                    "data": self._safe_list(sehir_toplam.values.tolist()),
+                    "backgroundColor": self._modern_palette(len(sehir_toplam)),
+                    "borderWidth": 0
+                }
+            ]
+        }  

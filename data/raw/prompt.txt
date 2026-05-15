@@ -15,15 +15,119 @@ Kurallar:
 10. Raporun alt kısmında toplam sipariş sayısı, toplam satış tutarı ve ortalama sipariş tutarı gibi özet bilgiler gösterilecek.
 11. Grafikler üst tarafta ve yanyana, tablo bunların altında olacak şekilde düzenlenecek.
 12. Tema olarak Bootstrap'ın "light" temasını kullanarak raporu oluşturacaksın.
+13. Grafikler görsellerini gösterirken herhangi bir path kullanma, resim yolları aynı klasör içerisinde olacak şekilde gösterilecek.
+14. chartjs_grafikler alanında bulunan grafikler için Chart.js kütüphanesini kullanarak interaktif grafikler oluşturacaksın. Bu grafikler de görsellerle aynı şekilde raporda gösterilecek.
 Api:
 - Endpoint: http://localhost:8000/ml/report
 - Gelen veri formatı: JSON
 - JSON yapısı:
 {
+    "ml_sonuclari": {
+        "toplam_tahmin_tl": {
+            "ortalama_hata": 3128.32,
+            "tahminler": [
+                -5873.445651024674,
+                6433.407227335945,
+                11567.219398113757
+            ]
+        },
+        "kategori_tahmin_modeli_yuzde": {
+            "dogruluk_orani": 16.0
+        }
+    },
     "grafikler": [
         "kategori_bazli_toplam_satis.png",
         "son_ay_en_cok_alim_yapan_5_musteri.png",
         "en_cok_satilan_10_sehir.png"
+    ],
+    "chartjs_grafikler": [
+        {
+            "type": "bar",
+            "title": "Kategori Bazlı Toplam Satış",
+            "labels": [
+                "Elektronik",
+                "Kozmetik",
+                "Diğer",
+                "Giyim",
+                "Ev"
+            ],
+            "datasets": [
+                {
+                    "label": "Toplam Satış",
+                    "data": [
+                        1290667.41,
+                        1289007.08,
+                        1277555.13,
+                        1117098.63,
+                        1100717.59
+                    ],
+                    "backgroundColor": [
+                        "#6366F1",
+                        "#8B5CF6",
+                        "#EC4899",
+                        "#22C55E",
+                        "#F59E0B"
+                    ],
+                    "borderRadius": 8
+                }
+            ]
+        },
+        {
+            "type": "bar",
+            "title": "Son 30 Gün En Çok Harcayan 5 Müşteri",
+            "labels": [
+                " Fatma Şahin",
+                "Ayşe Kaya",
+                "Ahmet Yılmaz",
+                "Mehmet  Demir"
+            ],
+            "datasets": [
+                {
+                    "label": "Toplam Harcama",
+                    "data": [
+                        66606.85,
+                        33324.37,
+                        25142.93,
+                        19953.58
+                    ],
+                    "backgroundColor": [
+                        "#6366F1",
+                        "#8B5CF6",
+                        "#EC4899",
+                        "#22C55E"
+                    ],
+                    "borderRadius": 8
+                }
+            ]
+        },
+        {
+            "type": "doughnut",
+            "title": "En Çok Satış Yapılan 10 Şehir",
+            "labels": [
+                "İstanbul",
+                "İzmir",
+                "Bursa",
+                "Ankara"
+            ],
+            "datasets": [
+                {
+                    "label": "Satış Adedi",
+                    "data": [
+                        964,
+                        535,
+                        528,
+                        507
+                    ],
+                    "backgroundColor": [
+                        "#6366F1",
+                        "#8B5CF6",
+                        "#EC4899",
+                        "#22C55E"
+                    ],
+                    "borderWidth": 0
+                }
+            ]
+        }
     ],
     "data": [
         {
@@ -72,6 +176,7 @@ Api:
     <title>Analiz</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <div class="container">
