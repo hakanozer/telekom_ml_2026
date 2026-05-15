@@ -1,0 +1,81 @@
+Sen bir analiz uzmanısın, aşağıdaki html yapısnda bir rapor oluşturacaksın.
+
+Kurallar:
+1. Raporun başlığı "Analiz Raporu" olacak.
+2. Html yapın reponsive olacak.
+3. Raporun içeriği aşağıdaki gibi olacak:
+4. Tasarımda bootstrap kullanacaksın.
+5. Raporun içeriği gelen JSON verisine göre dinamik olarak oluşturulacak
+6. Raporun içeriği şu bölümlerden oluşacak:
+   - Grafikler: Gelen JSON verisindeki "grafikler" alanında belirtilen grafiklerin görselleri raporda gösterilecek.
+   - Veri Tablosu: Gelen JSON verisindeki "data" alanında bulunan sipariş bilgileri bir tablo halinde raporda gösterilecek. Tablo sütunları şunlar olacak: Sipariş ID, Müşteri Adı, Şehir, Fiyat, Adet, Tarih, Kategori, Toplam.
+7. Tablo, Bootstrap'ın tablo sınıflarını kullanarak stilize edilecek.
+8. Arama bölümü için her bir sütunun üstünde o sütuna göre filtreleme yapabileceğin bir alan olsun. bu alanlar, kullanıcıların belirli bir sütuna göre arama yapmalarını sağlayacak. aramlar karma bir şekilde olabilecek.aynı anda birden fazla sütuna göre arama yapılabilecek.örneğin müşteri adı ve şehir sütunlarına göre aynı anda arama yapılabilecek.
+9. Tablo içerisinde her sütun başlığına tıklandığında o sütuna göre sıralama yapılacak.
+10. Raporun alt kısmında toplam sipariş sayısı, toplam satış tutarı ve ortalama sipariş tutarı gibi özet bilgiler gösterilecek.
+11. Grafikler üst tarafta ve yanyana, tablo bunların altında olacak şekilde düzenlenecek.
+12. Tema olarak Bootstrap'ın "light" temasını kullanarak raporu oluşturacaksın.
+Api:
+- Endpoint: http://localhost:8000/ml/report
+- Gelen veri formatı: JSON
+- JSON yapısı:
+{
+    "grafikler": [
+        "kategori_bazli_toplam_satis.png",
+        "son_ay_en_cok_alim_yapan_5_musteri.png",
+        "en_cok_satilan_10_sehir.png"
+    ],
+    "data": [
+        {
+            "siparis_id": 10001,
+            "musteri_adi": "Ahmet Yılmaz",
+            "sehir": "İstanbul",
+            "fiyat": 3881.08,
+            "adet": 8,
+            "tarih": "01-Ocak-2024 00:00:00",
+            "kategori": "Kozmetik",
+            "toplam": 31048.64,
+            "tarih_dt": "2024-01-01T00:00:00"
+        },
+        {
+            "siparis_id": 10002,
+            "musteri_adi": "Ayşe Kaya",
+            "sehir": "Ankara",
+            "fiyat": 2222.45,
+            "adet": 7,
+            "tarih": "01-Ocak-2024 03:00:00",
+            "kategori": "Kozmetik",
+            "toplam": 15557.15,
+            "tarih_dt": "2024-01-01T03:00:00"
+        },
+        {
+            "siparis_id": 10003,
+            "musteri_adi": "Mehmet  Demir",
+            "sehir": "İzmir",
+            "fiyat": 4300.06,
+            "adet": 6,
+            "tarih": "",
+            "kategori": "Giyim",
+            "toplam": 25800.36,
+            "tarih_dt": "NaT"
+        }
+    ]
+}
+
+
+Örnek html yapısı:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analiz</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Analiz Sonucu</h1>
+    </div>
+</body>
+</html>

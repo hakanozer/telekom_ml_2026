@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analiz Raporu</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #f0f4f8;
+            --bg-card: #ffffff;
+            --bg-card-hover: #f8fafc;
+            --accent-blue: #2563eb;
+            --accent-violet: #7c3aed;
+            --accent-emerald: #059669;
+            --accent-amber: #d97706;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-muted: #94a3b8;
+            --border-color: #e2e8f0;
+            --border-accent: #2563eb33;
+            --shadow-glow: 0 4px 24px rgba(37,99,235,0.10);
+            --table-stripe: #f8fafc;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: 'Sora', sans-serif;
+            min-height: 100vh;
+            background-image:
+                radial-gradient(ellipse 80% 50% at 50% -20%, rgba(37,99,235,0.06) 0%, transparent 60%),
+                radial-gradient(ellipse 50% 30% at 90% 80%, rgba(124,58,237,0.04) 0%, transparent 60%);
+        }
+
+        /* Header */
+        .report-header {
+            background: linear-gradient(135deg, #ffffff 0%, #f1f5fd 100%);
+            border-bottom: 1px solid var(--border-color);
+            padding: 2rem 0 1.5rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 1px 12px rgba(37,99,235,0.07);
+        }
+        .report-header::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--accent-blue), var(--accent-violet), transparent);
+        }
+        .report-header::after {
+            content: '';
+            position: absolute;
+            top: -60px; right: -60px;
+            width: 200px; height: 200px;
+            background: radial-gradient(circle, rgba(37,99,235,0.08) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .header-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(37,99,235,0.08);
+            border: 1px solid var(--border-accent);
+            color: var(--accent-blue);
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 0.75rem;
+        }
+        .header-badge .dot {
+            width: 6px; height: 6px;
+            background: var(--accent-blue);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.8); }
+        }
+        .report-title {
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #0f172a 0%, var(--accent-blue) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 0;
+        }
+        .report-subtitle { color: var(--text-muted); font-size: 0.875rem; margin-top: 0.25rem; }
+
+        /* Loading / Error */
+        #loading-state { padding: 5rem 0; text-align: center; }
+        .spinner-ring {
+            width: 52px; height: 52px;
+            border: 3px solid var(--border-color);
+            border-top-color: var(--accent-blue);
+            border-radius: 50%;
+            animation: spin 0.9s linear infinite;
+            margin: 0 auto 1rem;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .loading-text { color: var(--text-muted); font-size: 0.9rem; }
+        #error-state { padding: 4rem 0; text-align: center; display: none; }
+        .error-box {
+            background: rgba(239,68,68,0.08);
+            border: 1px solid rgba(239,68,68,0.3);
+            border-radius: 12px; padding: 2rem;
+            max-width: 520px; margin: 0 auto;
+        }
+        #report-content { display: none; }
+
+        /* Section label */
+        .section-label {
+            font-size: 0.7rem; font-weight: 600;
+            letter-spacing: 0.12em; text-transform: uppercase;
+            color: var(--accent-blue);
+            margin-bottom: 1rem;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .section-label::after {
+            content: ''; flex: 1; height: 1px;
+            background: linear-gradient(90deg, var(--border-accent), transparent);
+        }
+
+        /* Chart cards */
+        .chart-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px; overflow: hidden;
+            transition: border-color .3s, box-shadow .3s, transform .3s;
+            height: 100%;
+        }
+        .chart-card:hover {
+            border-color: var(--border-accent);
+            box-shadow: var(--shadow-glow);
+            transform: translateY(-3px);
+        }
+        .chart-card-header {
+            padding: 1rem 1.25rem .5rem;
+            border-bottom: 1px solid var(--border-color);
+            font-size: .78rem; font-weight: 600;
+            color: var(--text-secondary); letter-spacing: .05em;
+        }
+        .chart-card img { width: 100%; height: auto; display: block; padding: .75rem; }
+        .chart-placeholder {
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            height: 200px; color: var(--text-muted); font-size: .85rem; gap: .5rem;
+        }
+
+        /* Global search bar */
+        .search-wrapper { position: relative; }
+        .search-icon {
+            position: absolute; left: 14px; top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted); font-size: 1rem; pointer-events: none;
+        }
+        .search-input {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            border-radius: 10px;
+            padding: .65rem 1rem .65rem 2.6rem;
+            width: 100%;
+            font-family: 'Sora', sans-serif;
+            font-size: .875rem;
+            transition: border-color .2s, box-shadow .2s;
+        }
+        .search-input::placeholder { color: var(--text-muted); }
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 3px rgba(37,99,235,.12);
+        }
+        .result-count {
+            font-size: .78rem; color: var(--text-muted);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Active filter badges */
+        .filter-badges-wrap {
+            display: flex; flex-wrap: wrap; gap: 6px; align-items: center;
+        }
+        .filter-badge {
+            display: inline-flex; align-items: center; gap: 4px;
+            background: rgba(37,99,235,.08);
+            border: 1px solid var(--border-accent);
+            color: var(--accent-blue);
+            font-size: .7rem; font-weight: 600;
+            padding: 3px 8px 3px 10px; border-radius: 20px;
+            white-space: nowrap;
+        }
+        .filter-badge .clr {
+            cursor: pointer; opacity: .5;
+            font-size: .9rem; line-height: 1;
+            transition: opacity .15s;
+        }
+        .filter-badge .clr:hover { opacity: 1; }
+        .btn-clear-all {
+            background: none;
+            border: 1px solid #e2e8f0;
+            color: var(--text-muted);
+            font-size: .7rem; font-family: 'Sora', sans-serif;
+            padding: 3px 10px; border-radius: 20px;
+            cursor: pointer; transition: border-color .2s, color .2s;
+        }
+        .btn-clear-all:hover { border-color: #ef4444; color: #ef4444; }
+
+        /* Table */
+        .table-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px; overflow: hidden;
+        }
+        .table-responsive { border-radius: 0 0 16px 16px; }
+        table.data-table { width: 100%; margin: 0; border-collapse: collapse; }
+
+        /* Sort header row */
+        thead tr.sort-row { background: #f1f5fd; }
+        thead tr.sort-row th {
+            padding: .9rem 1rem;
+            font-size: .72rem; font-weight: 600;
+            letter-spacing: .08em; text-transform: uppercase;
+            color: var(--text-muted); white-space: nowrap;
+            cursor: pointer; user-select: none;
+            transition: color .2s; border: none;
+            border-bottom: 1px solid var(--border-color);
+        }
+        thead tr.sort-row th:hover { color: var(--accent-blue); }
+        thead tr.sort-row th.sort-asc,
+        thead tr.sort-row th.sort-desc { color: var(--accent-blue); }
+        .sort-icon { margin-left: 4px; font-size: .65rem; opacity: .4; transition: opacity .2s; }
+        thead tr.sort-row th:hover .sort-icon,
+        thead tr.sort-row th.sort-asc .sort-icon,
+        thead tr.sort-row th.sort-desc .sort-icon { opacity: 1; }
+
+        /* Column filter row */
+        thead tr.filter-row { background: #f4f7ff; }
+        thead tr.filter-row th {
+            padding: 6px 8px 8px;
+            border: none;
+            border-bottom: 2px solid #d4dcf5;
+            cursor: default;
+        }
+        .col-filter-input {
+            width: 100%;
+            background: #fff;
+            border: 1px solid #dde3f0;
+            color: var(--text-primary);
+            border-radius: 7px;
+            padding: 5px 8px;
+            font-family: 'Sora', sans-serif;
+            font-size: .73rem;
+            transition: border-color .2s, box-shadow .2s;
+            min-width: 56px;
+        }
+        .col-filter-input::placeholder { color: #c2cad8; }
+        .col-filter-input:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 2px rgba(37,99,235,.10);
+        }
+        .col-filter-input.active {
+            border-color: var(--accent-blue);
+            background: #eef3ff;
+            font-weight: 500;
+        }
+
+        /* Body rows */
+        tbody tr { border-bottom: 1px solid rgba(226,232,240,.8); transition: background .15s; }
+        tbody tr:nth-child(even) { background: var(--table-stripe); }
+        tbody tr:hover { background: #eef3ff; }
+        tbody td {
+            padding: .8rem 1rem;
+            font-size: .84rem;
+            color: var(--text-secondary);
+            border: none; vertical-align: middle;
+        }
+        .td-id { font-family: 'JetBrains Mono', monospace; font-size: .78rem; color: var(--text-muted); }
+        .td-name { color: var(--text-primary); font-weight: 500; }
+        .td-price { font-family: 'JetBrains Mono', monospace; color: var(--accent-emerald); font-size: .82rem; }
+        .td-total { font-family: 'JetBrains Mono', monospace; color: var(--accent-blue); font-size: .82rem; font-weight: 600; }
+        .badge-city {
+            background: rgba(124,58,237,.1); color: #7c3aed;
+            border: 1px solid rgba(124,58,237,.25);
+            border-radius: 6px; padding: 2px 8px; font-size: .75rem;
+        }
+        .badge-cat {
+            background: rgba(217,119,6,.08); color: #b45309;
+            border: 1px solid rgba(217,119,6,.2);
+            border-radius: 6px; padding: 2px 8px; font-size: .75rem;
+        }
+        .no-data-row td { text-align: center; padding: 3rem; color: var(--text-muted); }
+
+        /* Highlight matches */
+        mark.hl {
+            background: rgba(37,99,235,.15);
+            color: var(--accent-blue);
+            border-radius: 3px; padding: 0 2px;
+        }
+
+        /* Summary cards */
+        .summary-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 1.25rem 1.5rem;
+            transition: border-color .3s, transform .3s;
+            position: relative; overflow: hidden;
+        }
+        .summary-card:hover { border-color: var(--border-accent); transform: translateY(-2px); }
+        .summary-label {
+            font-size: .72rem; font-weight: 600;
+            letter-spacing: .1em; text-transform: uppercase;
+            color: var(--text-muted); margin-bottom: .5rem;
+        }
+        .summary-value { font-family: 'JetBrains Mono', monospace; font-size: 1.5rem; font-weight: 600; line-height: 1.2; }
+        .summary-value.blue { color: var(--accent-blue); }
+        .summary-value.emerald { color: var(--accent-emerald); }
+        .summary-value.amber { color: var(--accent-amber); }
+        .summary-icon { position: absolute; top: 1rem; right: 1rem; font-size: 1.4rem; opacity: .22; }
+
+        /* Footer */
+        .report-footer {
+            text-align: center; font-size: .75rem; color: var(--text-muted);
+            padding: 2rem 0; border-top: 1px solid var(--border-color);
+            margin-top: 3rem; background: var(--bg-card);
+        }
+        .mt-section { margin-top: 2.5rem; }
+    </style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="report-header">
+    <div class="container">
+        <div class="header-badge"><span class="dot"></span> Canlı Veri</div>
+        <h1 class="report-title">Analiz Raporu</h1>
+        <p class="report-subtitle" id="report-date"></p>
+    </div>
+</div>
+
+<div class="container py-4">
+
+    <!-- Loading -->
+    <div id="loading-state">
+        <div class="spinner-ring"></div>
+        <p class="loading-text">Veriler yükleniyor…</p>
+    </div>
+
+    <!-- Error -->
+    <div id="error-state">
+        <div class="error-box">
+            <div style="font-size:3rem;margin-bottom:1rem">⚠️</div>
+            <h5 style="color:#ef4444;margin-bottom:.5rem">Veri Yüklenemedi</h5>
+            <p id="error-message" style="color:var(--text-muted);font-size:.875rem;margin:0"></p>
+        </div>
+    </div>
+
+    <!-- Main content -->
+    <div id="report-content">
+
+        <!-- Grafikler -->
+        <div class="mt-section">
+            <div class="section-label">📊 Grafikler</div>
+            <div class="row g-3" id="charts-row"></div>
+        </div>
+
+        <!-- Veri Tablosu -->
+        <div class="mt-section">
+            <div class="section-label">📋 Veri Tablosu</div>
+
+            <!-- Üst bar -->
+            <div class="row align-items-center mb-2 g-2">
+                <div class="col-12 col-md-6">
+                    <div class="search-wrapper">
+                        <span class="search-icon">🔍</span>
+                        <input type="text" id="globalSearch" class="search-input" placeholder="Tüm sütunlarda ara…">
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 d-flex align-items-center justify-content-md-end gap-2 flex-wrap">
+                    <span class="result-count" id="result-count"></span>
+                    <button class="btn-clear-all" id="btnClearAll" style="display:none">✕ Filtreleri Temizle</button>
+                </div>
+            </div>
+
+            <!-- Aktif filtre rozetleri -->
+            <div id="badges-wrap" class="filter-badges-wrap mb-2" style="display:none"></div>
+
+            <!-- Tablo -->
+            <div class="table-card">
+                <div class="table-responsive">
+                    <table class="data-table" id="dataTable">
+                        <thead>
+                            <!-- Sıralama başlıkları -->
+                            <tr class="sort-row">
+                                <th data-col="siparis_id"  data-type="number">Sipariş ID <span class="sort-icon">⇅</span></th>
+                                <th data-col="musteri_adi" data-type="string">Müşteri Adı <span class="sort-icon">⇅</span></th>
+                                <th data-col="sehir"       data-type="string">Şehir <span class="sort-icon">⇅</span></th>
+                                <th data-col="fiyat"       data-type="number">Fiyat <span class="sort-icon">⇅</span></th>
+                                <th data-col="adet"        data-type="number">Adet <span class="sort-icon">⇅</span></th>
+                                <th data-col="tarih_dt"    data-type="date">Tarih <span class="sort-icon">⇅</span></th>
+                                <th data-col="kategori"    data-type="string">Kategori <span class="sort-icon">⇅</span></th>
+                                <th data-col="toplam"      data-type="number">Toplam <span class="sort-icon">⇅</span></th>
+                            </tr>
+                            <!-- Sütun filtresi inputları -->
+                            <tr class="filter-row">
+                                <th><input class="col-filter-input" data-col="siparis_id"  placeholder="ID ara…"></th>
+                                <th><input class="col-filter-input" data-col="musteri_adi" placeholder="İsim ara…"></th>
+                                <th><input class="col-filter-input" data-col="sehir"       placeholder="Şehir ara…"></th>
+                                <th><input class="col-filter-input" data-col="fiyat"       placeholder="Fiyat ara…"></th>
+                                <th><input class="col-filter-input" data-col="adet"        placeholder="Adet ara…"></th>
+                                <th><input class="col-filter-input" data-col="tarih"       placeholder="Tarih ara…"></th>
+                                <th><input class="col-filter-input" data-col="kategori"    placeholder="Kategori ara…"></th>
+                                <th><input class="col-filter-input" data-col="toplam"      placeholder="Toplam ara…"></th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Özet -->
+        <div class="mt-section">
+            <div class="section-label">📈 Özet Bilgiler</div>
+            <div class="row g-3">
+                <div class="col-12 col-sm-4">
+                    <div class="summary-card">
+                        <span class="summary-icon">🛒</span>
+                        <div class="summary-label">Toplam Sipariş</div>
+                        <div class="summary-value blue" id="sum-count">—</div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-4">
+                    <div class="summary-card">
+                        <span class="summary-icon">💰</span>
+                        <div class="summary-label">Toplam Satış Tutarı</div>
+                        <div class="summary-value emerald" id="sum-total">—</div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-4">
+                    <div class="summary-card">
+                        <span class="summary-icon">📊</span>
+                        <div class="summary-label">Ortalama Sipariş Tutarı</div>
+                        <div class="summary-value amber" id="sum-avg">—</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div><!-- /#report-content -->
+</div><!-- /.container -->
+
+<footer class="report-footer">
+    <div class="container">Analiz Raporu &nbsp;·&nbsp; <span id="footer-date"></span></div>
+</footer>
+
+<script>
+(function () {
+    'use strict';
+
+    const API_URL = 'http://localhost:8000/ml/report';
+
+    const CHART_TITLES = {
+        'kategori_bazli_toplam_satis.png':         'Kategori Bazlı Toplam Satış',
+        'son_ay_en_cok_alim_yapan_5_musteri.png':  'Son Ay En Çok Alım Yapan 5 Müşteri',
+        'en_cok_satilan_10_sehir.png':             'En Çok Satış Yapılan 10 Şehir',
+    };
+
+    const COL_LABELS = {
+        siparis_id: 'Sipariş ID', musteri_adi: 'Müşteri Adı',
+        sehir: 'Şehir', fiyat: 'Fiyat', adet: 'Adet',
+        tarih: 'Tarih', kategori: 'Kategori', toplam: 'Toplam',
+    };
+
+    let allData      = [];
+    let filteredData = [];
+    let sortCol      = null;
+    let sortDir      = 1;
+    const colFilters = {};   // { col: queryString }
+    let globalQuery  = '';
+
+    /* DOM */
+    const $loading     = document.getElementById('loading-state');
+    const $error       = document.getElementById('error-state');
+    const $content     = document.getElementById('report-content');
+    const $errMsg      = document.getElementById('error-message');
+    const $tbody       = document.getElementById('tableBody');
+    const $globalSrch  = document.getElementById('globalSearch');
+    const $count       = document.getElementById('result-count');
+    const $badgesWrap  = document.getElementById('badges-wrap');
+    const $btnClearAll = document.getElementById('btnClearAll');
+    const $sumCount    = document.getElementById('sum-count');
+    const $sumTotal    = document.getElementById('sum-total');
+    const $sumAvg      = document.getElementById('sum-avg');
+
+    /* Helpers */
+    const fmt      = (n, d=2) => Number(n).toLocaleString('tr-TR', {minimumFractionDigits:d, maximumFractionDigits:d});
+    const fmtMoney = n => '₺ ' + fmt(n);
+    const esc      = s => String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const safeDateStr = raw => {
+        if (!raw || raw === 'NaT' || raw === 'null') return '—';
+        const d = new Date(raw);
+        return isNaN(d) ? raw : d.toLocaleDateString('tr-TR', {day:'2-digit', month:'short', year:'numeric'});
+    };
+
+    /* Set header dates */
+    const now = new Date();
+    const dateFmt = now.toLocaleDateString('tr-TR', {day:'2-digit', month:'long', year:'numeric', hour:'2-digit', minute:'2-digit'});
+    document.getElementById('report-date').textContent = 'Oluşturulma: ' + dateFmt;
+    document.getElementById('footer-date').textContent = dateFmt;
+
+    function showError(msg) {
+        $loading.style.display = 'none';
+        $errMsg.textContent    = msg;
+        $error.style.display   = 'block';
+    }
+
+    /* Charts */
+    function buildCharts(grafikler, BASE) {
+        const row = document.getElementById('charts-row');
+        row.innerHTML = '';
+        if (!grafikler || !grafikler.length) {
+            row.innerHTML = '<div class="col"><p class="text-muted">Grafik bulunamadı.</p></div>';
+            return;
+        }
+        const cls = grafikler.length === 1 ? 'col-12'
+                  : grafikler.length === 2 ? 'col-12 col-md-6'
+                  : 'col-12 col-md-6 col-lg-4';
+        grafikler.forEach(name => {
+            const title = CHART_TITLES[name] || name.replace(/_/g,' ').replace('.png','');
+            const col   = document.createElement('div');
+            col.className = cls;
+            col.innerHTML = `
+                <div class="chart-card">
+                    <div class="chart-card-header">${title}</div>
+                    <img src="${name}" alt="${title}" loading="lazy"
+                         onerror="this.parentElement.innerHTML='<div class=\\'chart-placeholder\\'>🖼️<span>Grafik yüklenemedi</span></div>'">
+                </div>`;
+            row.appendChild(col);
+        });
+    }
+
+    /* Highlight a query term inside a string */
+    function hl(text, query) {
+        if (!query || !query.trim()) return String(text);
+        return String(text).replace(new RegExp(`(${esc(query.trim())})`, 'gi'), '<mark class="hl">$1</mark>');
+    }
+
+    /* Get display value for a column (for filtering & highlighting) */
+    function colVal(row, col) {
+        if (col === 'tarih') {
+            return row.tarih && row.tarih.trim() ? row.tarih.split(' ')[0] : safeDateStr(row.tarih_dt);
+        }
+        if (col === 'fiyat')  return fmtMoney(row.fiyat);
+        if (col === 'toplam') return fmtMoney(row.toplam);
+        return String(row[col] ?? '');
+    }
+
+    /* Build one tbody <tr> */
+    function buildRow(item) {
+        const tarihStr = colVal(item, 'tarih');
+
+        // Determine highlight query per cell: column filter takes precedence, else global
+        const hq = col => (colFilters[col] && colFilters[col].trim()) ? colFilters[col] : globalQuery;
+
+        const id  = hl('#' + item.siparis_id, hq('siparis_id'));
+        const nom = hl(item.musteri_adi || '—', hq('musteri_adi'));
+        const cit = hl(item.sehir || '—', hq('sehir'));
+        const pri = hl(fmtMoney(item.fiyat), hq('fiyat'));
+        const qty = hl(item.adet, hq('adet'));
+        const dat = hl(tarihStr, hq('tarih'));
+        const cat = hl(item.kategori || '—', hq('kategori'));
+        const tot = hl(fmtMoney(item.toplam), hq('toplam'));
+
+        return `<tr>
+            <td class="td-id">${id}</td>
+            <td class="td-name">${nom}</td>
+            <td><span class="badge-city">${cit}</span></td>
+            <td class="td-price">${pri}</td>
+            <td>${qty}</td>
+            <td style="font-size:.8rem;color:var(--text-muted)">${dat}</td>
+            <td><span class="badge-cat">${cat}</span></td>
+            <td class="td-total">${tot}</td>
+        </tr>`;
+    }
+
+    /* Render table */
+    function renderTable(data) {
+        if (!data || !data.length) {
+            $tbody.innerHTML = `<tr class="no-data-row"><td colspan="8">Kayıt bulunamadı.</td></tr>`;
+            $count.textContent = '0 kayıt';
+            return;
+        }
+        $tbody.innerHTML   = data.map(buildRow).join('');
+        $count.textContent = `${data.length} / ${allData.length} kayıt`;
+    }
+
+    /* Apply all active filters (AND logic for column filters, OR for global) */
+    function applyFilters() {
+        const gq      = globalQuery.toLowerCase().trim();
+        const actCols = Object.entries(colFilters).filter(([, v]) => v.trim() !== '');
+
+        filteredData = allData.filter(row => {
+            // Global search: any column must match
+            if (gq) {
+                const anyMatch = Object.keys(COL_LABELS).some(col =>
+                    colVal(row, col).toLowerCase().includes(gq)
+                );
+                if (!anyMatch) return false;
+            }
+            // Column filters: ALL must match (AND)
+            for (const [col, q] of actCols) {
+                if (!colVal(row, col).toLowerCase().includes(q.toLowerCase().trim())) return false;
+            }
+            return true;
+        });
+
+        if (sortCol) applySort(sortCol, false);
+        else renderTable(filteredData);
+
+        updateBadges();
+    }
+
+    /* Render active filter badges */
+    function updateBadges() {
+        const actCols   = Object.entries(colFilters).filter(([, v]) => v.trim());
+        const hasGlobal = globalQuery.trim() !== '';
+        const hasAny    = hasGlobal || actCols.length > 0;
+
+        $badgesWrap.style.display    = hasAny ? 'flex' : 'none';
+        $btnClearAll.style.display   = hasAny ? 'inline-block' : 'none';
+        $badgesWrap.innerHTML        = '';
+
+        const makeBadge = (label, onClear) => {
+            const b = document.createElement('span');
+            b.className = 'filter-badge';
+            b.innerHTML = `${label} <span class="clr">✕</span>`;
+            b.querySelector('.clr').addEventListener('click', onClear);
+            $badgesWrap.appendChild(b);
+        };
+
+        if (hasGlobal) {
+            makeBadge(`Genel: <strong>${globalQuery}</strong>`, () => {
+                $globalSrch.value = '';
+                globalQuery = '';
+                applyFilters();
+            });
+        }
+        actCols.forEach(([col, val]) => {
+            makeBadge(`${COL_LABELS[col]}: <strong>${val}</strong>`, () => {
+                colFilters[col] = '';
+                const inp = document.querySelector(`.col-filter-input[data-col="${col}"]`);
+                if (inp) { inp.value = ''; inp.classList.remove('active'); }
+                applyFilters();
+            });
+        });
+    }
+
+    /* Sort */
+    function applySort(col, toggleDir = true) {
+        const headers = document.querySelectorAll('#dataTable thead tr.sort-row th');
+        const th      = [...headers].find(h => h.dataset.col === col);
+        const type    = th?.dataset.type || 'string';
+
+        if (toggleDir) {
+            sortDir = (sortCol === col) ? sortDir * -1 : 1;
+            sortCol = col;
+        }
+
+        headers.forEach(h => {
+            h.classList.remove('sort-asc', 'sort-desc');
+            const ic = h.querySelector('.sort-icon');
+            if (ic) ic.textContent = '⇅';
+        });
+        if (th) {
+            th.classList.add(sortDir === 1 ? 'sort-asc' : 'sort-desc');
+            const ic = th.querySelector('.sort-icon');
+            if (ic) ic.textContent = sortDir === 1 ? '↑' : '↓';
+        }
+
+        filteredData.sort((a, b) => {
+            let va = a[col], vb = b[col];
+            if (type === 'number') { va = Number(va) || 0; vb = Number(vb) || 0; }
+            else if (type === 'date') {
+                const da = va && va !== 'NaT' ? new Date(va).getTime() : 0;
+                const db = vb && vb !== 'NaT' ? new Date(vb).getTime() : 0;
+                return (da - db) * sortDir;
+            } else { va = String(va || '').toLowerCase(); vb = String(vb || '').toLowerCase(); }
+            return va < vb ? -sortDir : va > vb ? sortDir : 0;
+        });
+
+        renderTable(filteredData);
+    }
+
+    /* Summary */
+    function buildSummary(data) {
+        const total = data.reduce((s, r) => s + (Number(r.toplam) || 0), 0);
+        $sumCount.textContent = data.length;
+        $sumTotal.textContent = fmtMoney(total);
+        $sumAvg.textContent   = fmtMoney(data.length ? total / data.length : 0);
+    }
+
+    /* Fetch & boot */
+    async function loadReport() {
+        try {
+            const res = await fetch(API_URL, { headers: { 'Accept': 'application/json' } });
+            if (!res.ok) throw new Error(`Sunucu hatası: ${res.status} ${res.statusText}`);
+            const json = await res.json();
+            const BASE = API_URL.replace(/\/[^/]+$/, '/') + 'charts/';
+            buildCharts(json.grafikler || [], BASE);
+            allData      = Array.isArray(json.data) ? json.data : [];
+            filteredData = [...allData];
+            renderTable(filteredData);
+            buildSummary(allData);
+            $loading.style.display = 'none';
+            $content.style.display = 'block';
+        } catch (err) {
+            showError(`Veriler alınamadı: ${err.message}. API adresinin çalıştığını ve CORS ayarlarının doğru olduğunu kontrol ediniz.`);
+        }
+    }
+
+    /* ── Event bindings ── */
+
+    // Global search
+    $globalSrch.addEventListener('input', e => {
+        globalQuery = e.target.value;
+        applyFilters();
+    });
+
+    // Column filter inputs
+    document.querySelectorAll('.col-filter-input').forEach(inp => {
+        inp.addEventListener('input', e => {
+            const col = e.target.dataset.col;
+            colFilters[col] = e.target.value;
+            e.target.classList.toggle('active', e.target.value.trim() !== '');
+            applyFilters();
+        });
+        // Tab / Enter: jump to next filter input
+        inp.addEventListener('keydown', e => {
+            if (e.key === 'Enter' || e.key === 'Tab') {
+                const all = [...document.querySelectorAll('.col-filter-input')];
+                const idx = all.indexOf(inp);
+                const next = all[idx + (e.shiftKey ? -1 : 1)];
+                if (next) { e.preventDefault(); next.focus(); }
+            }
+        });
+    });
+
+    // Clear all filters button
+    $btnClearAll.addEventListener('click', () => {
+        $globalSrch.value = '';
+        globalQuery = '';
+        document.querySelectorAll('.col-filter-input').forEach(i => {
+            i.value = ''; i.classList.remove('active');
+        });
+        Object.keys(colFilters).forEach(k => delete colFilters[k]);
+        applyFilters();
+    });
+
+    // Sort headers
+    document.querySelectorAll('#dataTable thead tr.sort-row th').forEach(th => {
+        th.addEventListener('click', () => {
+            if (th.dataset.col) applySort(th.dataset.col);
+        });
+    });
+
+    loadReport();
+})();
+</script>
+</body>
+</html>
